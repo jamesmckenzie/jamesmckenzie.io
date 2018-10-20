@@ -15,18 +15,13 @@ const KnockoutText = ({ children }) => (
       -webkit-text-fill-color: transparent;
       -webkit-background-clip: text;
       font-weight: bold;
-      font-size: 80px;
+      font-size: 6rem;
       font-family: arial, helvetica;
       text-align: center;
       margin: 0 20px !important;
       padding: 5px 8px;
 
       letter-spacing: -5px;
-
-      border-bottom: solid;
-      border-image-source: linear-gradient(#3ec8ac, #4e90a4);
-      border-image-slice: 20;
-      border-width: ${borderWidth}px;
     `}
   >
     {children}

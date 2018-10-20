@@ -9,6 +9,6 @@ const borderWidth = 15;
 
 export default () => (
   <FullScreenBorder>
-    <KnockoutText>James McKenzie</KnockoutText>
+    <KnockoutText>James McKenzie.</KnockoutText>
   </FullScreenBorder>
 );
