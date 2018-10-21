@@ -1,7 +1,7 @@
 import React from "react";
 import { css } from "emotion";
 
-const borderWidth = 15;
+const borderWidth = 10;
 
 const FullScreenBorder = ({ children }) => (
   <div

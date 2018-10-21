@@ -10,9 +10,15 @@
   },
   "dependencies": {
     "emotion": "^9.2.12",
+    "emotion-server": "^9.2.12",
     "gatsby": "^2.0.28",
+    "gatsby-plugin-emotion": "^2.0.5",
+    "gatsby-plugin-google-fonts": "^0.0.4",
     "react": "^16.5.1",
-    "react-dom": "^16.5.1"
+    "react-dom": "^16.5.1",
+    "react-emotion": "^9.2.12",
+    "react-helmet": "^5.2.0",
+    "typeface-lato": "^0.0.54"
   },
   "devDependencies": {
     "gh-pages": "^2.0.1"

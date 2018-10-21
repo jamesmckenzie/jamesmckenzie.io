@@ -14,9 +14,11 @@ const KnockoutText = ({ children }) => (
       color: red;
       -webkit-text-fill-color: transparent;
       -webkit-background-clip: text;
+
       font-weight: bold;
       font-size: 6rem;
-      font-family: arial, helvetica;
+      font-family: Lato, arial, helvetica;
+
       text-align: center;
       margin: 0 20px !important;
       padding: 5px 8px;
