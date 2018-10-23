@@ -1,7 +1,8 @@
 import React from "react";
 import { css } from "emotion";
+import { media } from "../helpers/css";
 
-const borderWidth = 15;
+// const borderWidth = 15;
 
 const KnockoutText = ({ children }) => (
   <h1
@@ -15,10 +16,12 @@ const KnockoutText = ({ children }) => (
       -webkit-text-fill-color: transparent;
       -webkit-background-clip: text;
 
-      font-weight: bold;
-      font-size: 6rem;
+      font-weight: 100;
+      font-size: 50rem;
       font-family: Lato, arial, helvetica;
 
+      font-size: 6rem;
+      ${media.phone`font-size: 5rem`};
       text-align: center;
       margin: 0 20px !important;
       padding: 5px 8px;
