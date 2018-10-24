@@ -9,6 +9,19 @@ const borderWidth = 15;
 
 export default () => (
   <FullScreenBorder>
-    <KnockoutText>James McKenzie.</KnockoutText>
+    <div>
+      <KnockoutText>James McKenzie.</KnockoutText>
+      <h3
+        className={css`
+          text-align: right;
+          margin-right: 25px;
+          font-family: Lato;
+          font-weight: bold;
+          color: #74ebd5;
+        `}
+      >
+        Software Engineer in London
+      </h3>
+    </div>
   </FullScreenBorder>
 );
