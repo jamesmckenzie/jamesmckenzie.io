@@ -3,7 +3,7 @@ import { Box, Flex, Text } from "rebass";
 import Img from "gatsby-image";
 
 const AboutMe = ({ image }) => (
-  <Box bg="#fdfdfd">
+  <Box px={4}>
     <Box py={5}>
       <Text
         as="h2"
@@ -12,16 +12,15 @@ const AboutMe = ({ image }) => (
         fontSize={[60]}
         textAlign="center"
         color="#2f2f2f"
-        // my={5}
       >
         About Me
       </Text>
     </Box>
-    <Flex>
-      <Box  width={1 / 3} p={3}>
+    <Flex flexDirection={["column", "column", "row"]}>
+      <Box width={[1, 1, 1 / 3]} px={[3, 5, 2, 4]}>
         <Img fluid={image.childImageSharp.fluid} />
       </Box>
-      <Box  width={2 / 3} py={3} px={5}>
+      <Box width={[1, 1, 2 / 3]} px={[2, 4, 3]} my={4}>
         <Text
           fontSize={3}
           color="#2f2f2f"
@@ -29,15 +28,19 @@ const AboutMe = ({ image }) => (
           fontFamily="Raleway, sans-serif"
           lineHeight={1.6}
         >
-          I'm a multi-disciplined Software Engineer, currently building cool
-          stuff at JustGiving. Lorem ipsum dolor amet la croix enamel pin XOXO,
-          plaid fixie mumblecore hella locavore. Artisan viral small batch,
-          cloud bread mustache letterpress kombucha. Readymade blog beard
-          cardigan farm-to-table 90's hell of intelligentsia shaman cred
-          pinterest. Portland offal pop-up readymade semiotics. Franzen lyft
-          selvage offal, aesthetic tbh heirloom. Locavore flannel offal,
-          brooklyn fixie letterpress kickstarter kale chips paleo cornhole.
-          Schlitz authentic godard skateboard kinfolk.
+          <p>
+            I'm a multi-disciplined Software Engineer, currently building cool
+            stuff at JustGiving. I enjoy solving interesting problems with
+            occasionally novel solutions and understand that the best answer
+            isn't always the prettiest.
+          </p>{" "}
+          <br />
+          <p>
+            Current stack:
+            <li>Typescript</li>
+            <li>React</li>
+            <li>Nodejs</li>
+          </p>
         </Text>
       </Box>
     </Flex>

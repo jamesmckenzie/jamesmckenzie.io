@@ -2,6 +2,7 @@ import React from "react";
 import styled, { css, keyframes } from "styled-components";
 import FadeIn from "../FadeIn";
 import { Flex, Box, Text } from "rebass";
+import { media } from "../../helpers/css";
 
 const Background = styled(Box)`
   z-index: -1;
@@ -59,6 +60,10 @@ const Hero = () => (
         alignItems="center"
         css={css`
           height: 122vh;
+          min-height: 830px;
+          ${media.desktop`
+            min-height: 500px;
+          `}
         `}
       >
         <Box>
@@ -91,31 +96,40 @@ const Hero = () => (
             mt={4}
             letterSpacing={-1}
           >
-            A{" "}
-            <Text
-              as="span"
-              bg="white"
-              color="#2f80ed"
-              p={3}
-              css={css`
-                border-radius: 6px;
-              `}
-              lineHeight={1}
+            <Flex
+              alignItems={["start", "center"]}
+              flexDirection={["column", "row"]}
+              justifyContent="center"
             >
-              <i>software developer</i>
-            </Text>{" "}
-            from London
-          </Text>
-          <Text
-            as="p"
-            textAlign="center"
-            fontSize={fontSizes.map(s => s * 0.5)}
-            mt={[4, 5, 6, 6]}
-            css={css`
-              animation: ${waveAnimation} 7s infinite 3s linear;
-            `}
-          >
-            👋
+              <Text mb={[2, 0]}>
+                A
+                <Text
+                  mx={2}
+                  as="span"
+                  bg="white"
+                  color="#2f80ed"
+                  p={3}
+                  css={css`
+                    border-radius: 6px;
+                  `}
+                  lineHeight={1}
+                >
+                  <i>software developer</i>
+                </Text>{" "}
+              </Text>
+              <Text mt={[3, 0]}>from London</Text>
+            </Flex>
+            <Text
+              as="p"
+              textAlign={["center"]}
+              fontSize={fontSizes.map(s => s * 0.5)}
+              mt={[4, 5, 6, 6]}
+              css={css`
+                animation: ${waveAnimation} 7s infinite 3s linear;
+              `}
+            >
+              👋
+            </Text>
           </Text>
         </Box>
       </Flex>

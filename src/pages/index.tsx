@@ -3,7 +3,8 @@ import { Layout } from "../components/Layout";
 import { Hero } from "../components/Hero";
 import { graphql } from "gatsby";
 import AboutMe from "../components/AboutMe/AboutMe";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { Box } from "rebass";
 
 const Angle = styled.svg`
   margin-top: -150vh;
@@ -25,7 +26,7 @@ export const query = graphql`
   {
     fileName: file(relativePath: { eq: "Image from iOS.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 400, maxHeight: 250) {
+        fluid(maxWidth: 400, maxHeight: 400) {
           ...GatsbyImageSharpFluid
         }
       }
