@@ -16,11 +16,16 @@ const AboutMe = ({ image }) => (
         About Me
       </Text>
     </Box>
-    <Flex flexDirection={["column", "column", "row"]}>
-      <Box width={[1, 1, 1 / 3]} px={[3, 5, 2, 4]}>
-        <Img fluid={image.childImageSharp.fluid} />
+    <Flex flexDirection={["column", "row"]}>
+      <Box width={[1, 1 / 3, 1 / 3]} px={[5, 0, 4, 5]}>
+        <Img
+          fluid={image.childImageSharp.fluid}
+          css={css`
+            border-radius: 50%;
+          `}
+        />
       </Box>
-      <Box width={[1, 1, 2 / 3]} px={[2, 4, 3]} my={4}>
+      <Box width={[1, 2 / 3, 2 / 3]} px={[2, 4, 3]} my={4}>
         <Text
           fontSize={3}
           color="#2f2f2f"

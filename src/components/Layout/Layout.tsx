@@ -5,7 +5,7 @@ import { Box, Text } from "rebass";
 import { css } from "styled-components";
 
 const Footer = () => (
-  <Box py={3} color="white" bg="#DCDCDC" as="footer">
+  <Box py={3} color="white" bg="whitesmoke" as="footer">
     <Text fontFamily="Raleway, sans-serif" textAlign="center">
       ❤️
     </Text>
