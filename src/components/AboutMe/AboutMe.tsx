@@ -3,8 +3,8 @@ import { Box, Flex, Text } from "rebass";
 import Img from "gatsby-image";
 
 const AboutMe = ({ image }) => (
-  <Box px={4}>
-    <Box py={5}>
+  <Box px={4} mt={4} mb={5}>
+    <Box mb={4}>
       <Text
         as="h2"
         fontFamily="Neuton, serif"

@@ -1,8 +1,16 @@
 import React from "react";
 import GlobalStyle from "../GlobalStyle";
 import { SocialBar } from "../SocialBar";
-import { Box } from "rebass";
+import { Box, Text } from "rebass";
 import { css } from "styled-components";
+
+const Footer = () => (
+  <Box py={3} color="white" bg="#DCDCDC" as="footer">
+    <Text fontFamily="Raleway, sans-serif" textAlign="center">
+      ❤️
+    </Text>
+  </Box>
+);
 
 const Layout: React.FunctionComponent = ({ children }) => (
   <Box
@@ -20,6 +28,7 @@ const Layout: React.FunctionComponent = ({ children }) => (
     <GlobalStyle />
     <SocialBar />
     {children}
+    <Footer />
   </Box>
 );
 
