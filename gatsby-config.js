@@ -30,6 +30,15 @@ module.exports = {
         ]
       }
     },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Neuton\:300,800`,
+          `Raleway\:400,400i` // you can also specify font weights and styles
+        ]
+      }
+    },
     `gatsby-plugin-typescript`
   ]
 };

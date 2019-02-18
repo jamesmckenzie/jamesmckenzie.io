@@ -878,6 +878,14 @@
     "@types/history" "*"
     "@types/react" "*"
 
+"@types/react-native@*":
+  version "0.57.37"
+  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.57.37.tgz#8cc9d142d5c6a2b7580fec9673984edfbd125194"
+  integrity sha512-huAmdfInEHK34hsJmEpU+Gj1L/WwIGVpSMdFl4oGClIgUB+y71tWx0fCiFWGSb4JYL/OkSEIa49fGFO1BgmUlw==
+  dependencies:
+    "@types/prop-types" "*"
+    "@types/react" "*"
+
 "@types/react@*":
   version "16.8.2"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.8.2.tgz#3b7a7f7ea89d1c7d68b00849fb5de839011c077b"
@@ -886,12 +894,23 @@
     "@types/prop-types" "*"
     csstype "^2.2.0"
 
-"@types/rebass@^3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@types/rebass/-/rebass-3.0.1.tgz#1a1c103f9f0e4e48cff72cfa75bea6c4ec2c02a3"
-  integrity sha512-RuUyYAqLtTkxE6dEoesCyFFOXfl6QTedOcMwYHJ9Z715Y5mwRxRC4qmEiTaOtKGN7KVpSt+C3ff1Hrss1KPmzg==
+"@types/rebass@^3.0.3":
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/@types/rebass/-/rebass-3.0.3.tgz#ff585d59781917c1555907c10b1575cae99ddef7"
+  integrity sha512-2/zZV9W7QVjEnJnrwy3TArzdSTVVhNFylWLcricMj5RfmglbM08etPgwelPP/I/UTHUEDjRAEkUYp7YzJt1vhQ==
   dependencies:
     "@types/react" "*"
+    "@types/styled-components" "*"
+    "@types/styled-system" "*"
+
+"@types/styled-components@*":
+  version "4.1.10"
+  resolved "https://registry.yarnpkg.com/@types/styled-components/-/styled-components-4.1.10.tgz#7d23d0f1f5b32a78a9207d0300480d47251a3e98"
+  integrity sha512-BrXaqsBG2iiT/U1SLLMa32rt3nYdKVBnMSgsbC7bmoGHp9sefmp6wF3FrEUCUFPTRuKf0AgYIP4HRaTo/pj0Ng==
+  dependencies:
+    "@types/react" "*"
+    "@types/react-native" "*"
+    csstype "^2.2.0"
 
 "@types/styled-components@^4.1.8":
   version "4.1.8"
@@ -900,6 +919,13 @@
   dependencies:
     "@types/node" "*"
     "@types/react" "*"
+    csstype "^2.2.0"
+
+"@types/styled-system@*":
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/@types/styled-system/-/styled-system-3.2.2.tgz#a40b30baf20a8d9820808688a370a973cb778e7c"
+  integrity sha512-QjjszVXRIeAT1fAQewWKh1Ewq3/i6xeYp2DH7DC151FfnLNtUbjT8CxUuqpnKrRiessoKdQVLw+3xu/RiMpNBQ==
+  dependencies:
     csstype "^2.2.0"
 
 "@types/tmp@^0.0.32":

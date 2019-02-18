@@ -71,7 +71,7 @@ const Hero = () => (
             as="p"
             fontFamily="Raleway, sans-serif"
             fontSize={fontSizes.map(s => s * 0.3)}
-            fontWeight="300"
+            fontWeight={300}
             color="white"
             letterSpacing={-1}
             mb={[-2]}
@@ -81,7 +81,7 @@ const Hero = () => (
           <Text
             as="h1"
             fontFamily="Neuton, serif"
-            fontWeight="800"
+            fontWeight={800}
             fontSize={fontSizes}
             color="white"
           >
@@ -91,7 +91,7 @@ const Hero = () => (
             as="p"
             fontFamily="Raleway, sans-serif"
             fontSize={fontSizes.map(s => s * 0.5)}
-            fontWeight="300"
+            fontWeight={300}
             color="white"
             mt={4}
             letterSpacing={-1}
@@ -101,23 +101,43 @@ const Hero = () => (
               flexDirection={["column", "row"]}
               justifyContent="center"
             >
-              <Text mb={[2, 0]}>
+              <Text
+                // mb={[2, 0]}
+                fontFamily="Raleway, sans-serif"
+                fontSize={fontSizes.map(s => s * 0.5)}
+                fontWeight={300}
+                color="white"
+                // mt={4}
+                letterSpacing={-1}
+              >
                 A
-                <Text
-                  mx={2}
-                  as="span"
-                  bg="white"
-                  color="#2f80ed"
-                  p={3}
-                  css={css`
-                    border-radius: 6px;
-                  `}
-                  lineHeight={1}
-                >
-                  <i>software developer</i>
-                </Text>{" "}
               </Text>
-              <Text mt={[3, 0]}>from London</Text>
+              <Text
+                mx={2}
+                as="span"
+                bg="white"
+                color="#2f80ed"
+                p={3}
+                fontFamily="Raleway, sans-serif"
+                fontSize={fontSizes.map(s => s * 0.5)}
+                css={css`
+                  border-radius: 6px;
+                `}
+                lineHeight={1}
+              >
+                software developer
+              </Text>{" "}
+              <Text
+                mt={[3, 0]}
+                fontFamily="Raleway, sans-serif"
+                fontSize={fontSizes.map(s => s * 0.5)}
+                fontWeight={300}
+                color="white"
+                // mt={4}
+                letterSpacing={-1}
+              >
+                from London
+              </Text>
             </Flex>
             <Text
               as="p"
