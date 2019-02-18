@@ -66,7 +66,7 @@ const Hero = () => (
           `}
         `}
       >
-        <Box mt={[-5, 0]}>
+        <Box mt={[-6, -5, 0]}>
           <Text
             as="p"
             fontFamily="Raleway, sans-serif"
