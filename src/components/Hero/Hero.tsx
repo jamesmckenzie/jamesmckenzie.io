@@ -99,7 +99,7 @@ const Hero = () => (
             <Flex alignItems={["center"]}>
               <Text
                 fontFamily="Raleway, sans-serif"
-                fontSize={fontSizes.map(s => s * 0.3)}
+                fontSize={fontSizes.map(s => s * 0.4)}
                 fontWeight={300}
                 color="white"
                 mt={2}
@@ -125,7 +125,7 @@ const Hero = () => (
               </Text>{" "}
               <Text
                 fontFamily="Raleway, sans-serif"
-                fontSize={fontSizes.map(s => s * 0.3)}
+                fontSize={fontSizes.map(s => s * 0.4)}
                 fontWeight={300}
                 color="white"
                 letterSpacing={-1}
