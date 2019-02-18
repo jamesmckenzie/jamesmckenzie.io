@@ -66,7 +66,7 @@ const Hero = () => (
           `}
         `}
       >
-        <Box>
+        <Box mt={[-5, 0]}>
           <Text
             as="p"
             fontFamily="Raleway, sans-serif"
@@ -93,31 +93,27 @@ const Hero = () => (
             fontSize={fontSizes.map(s => s * 0.5)}
             fontWeight={300}
             color="white"
-            mt={4}
+            mt={3}
             letterSpacing={-1}
           >
-            <Flex
-              alignItems={["start", "center"]}
-              flexDirection={["column", "row"]}
-              justifyContent="center"
-            >
+            <Flex alignItems={["center"]}>
               <Text
-                // mb={[2, 0]}
                 fontFamily="Raleway, sans-serif"
-                fontSize={fontSizes.map(s => s * 0.5)}
+                fontSize={fontSizes.map(s => s * 0.3)}
                 fontWeight={300}
                 color="white"
-                // mt={4}
+                mt={2}
                 letterSpacing={-1}
               >
                 A
               </Text>
               <Text
+                textAlign="center"
                 mx={2}
-                as="span"
                 bg="white"
                 color="#2f80ed"
-                p={3}
+                py={3}
+                px={[2]}
                 fontFamily="Raleway, sans-serif"
                 fontSize={fontSizes.map(s => s * 0.5)}
                 css={css`
@@ -128,13 +124,12 @@ const Hero = () => (
                 software developer
               </Text>{" "}
               <Text
-                mt={[3, 0]}
                 fontFamily="Raleway, sans-serif"
-                fontSize={fontSizes.map(s => s * 0.5)}
+                fontSize={fontSizes.map(s => s * 0.3)}
                 fontWeight={300}
                 color="white"
-                // mt={4}
                 letterSpacing={-1}
+                mt={2}
               >
                 from London
               </Text>
