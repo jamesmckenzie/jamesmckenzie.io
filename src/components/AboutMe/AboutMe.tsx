@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Flex, Text } from "rebass";
 import Img from "gatsby-image";
+import { css } from "styled-components";
 
 const AboutMe = ({ image }) => (
   <Box px={4} mt={4} mb={5}>

@@ -4,6 +4,9 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-plugin-styled-components`
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
@@ -27,9 +30,6 @@ module.exports = {
         ]
       }
     },
-    `gatsby-plugin-typescript`,
-    {
-      resolve: `gatsby-plugin-styled-components`
-    }
+    `gatsby-plugin-typescript`
   ]
 };
