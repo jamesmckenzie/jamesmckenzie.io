@@ -7,7 +7,8 @@ import {
   NodeIcon,
   TypescriptIcon,
   JavascriptIcon,
-  ReduxIcon
+  ReduxIcon,
+  SassIcon
 } from "../DevIcons";
 
 const StyledImg = styled(Img)`
@@ -48,20 +49,23 @@ const AboutMe: React.FunctionComponent<any> = ({ image }) => (
           </p>
           <Flex justifyContent="center">
             <Flex width={[3 / 4, 3 / 4, 1 / 2]} mt={4}>
-              <Box width={1} mx={2}>
+              <Box width={[1]} mx={[1, 2]}>
                 <JavascriptIcon />
               </Box>
-              <Box width={1} mx={2}>
+              <Box width={[1]} mx={[1, 2]}>
                 <TypescriptIcon />
               </Box>
-              <Box width={1} mx={2}>
+              <Box width={[1]} mx={[1, 2]}>
                 <NodeIcon />
               </Box>
-              <Box width={1} mx={2}>
+              <Box width={[1]} mx={[1, 2]}>
                 <ReactIcon />
               </Box>
-              <Box width={1} mx={2}>
+              <Box width={[1]} mx={[1, 2]}>
                 <ReduxIcon />
+              </Box>
+              <Box width={[1]} mx={[1, 2]}>
+                <SassIcon />
               </Box>
             </Flex>
           </Flex>
