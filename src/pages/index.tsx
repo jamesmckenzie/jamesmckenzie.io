@@ -11,7 +11,6 @@ const Angle = styled.svg`
 `;
 
 const HomePage: React.FunctionComponent = ({ data }: any) => {
-  console.log(data.fileName.childImageSharp);
   return (
     <Layout>
       <Hero />
