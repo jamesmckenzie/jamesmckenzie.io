@@ -54,6 +54,7 @@ module.exports = {
         siteSpeedSampleRate: 10,
         cookieDomain: "jamesmckenzie.io"
       }
-    }
+    },
+    `gatsby-plugin-react-helmet`
   ]
 };
