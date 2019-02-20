@@ -1,6 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `James McKenzie`
+    title: "James McKenzie",
+    description:
+      "A multi-disciplined Software Engineer, currently building cool stuff at JustGiving.",
+    siteUrl: "https://www.jamesmckenzie.io"
   },
   plugins: [
     {
@@ -41,20 +44,17 @@ module.exports = {
     },
     `gatsby-plugin-typescript`,
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-gtag`,
       options: {
-        trackingId: "UA-134765861-1",
+        // your google analytics tracking id
+        trackingId: `UA-XXXXXXXX-X`,
         // Puts tracking script in the head instead of the body
         head: false,
-        // Setting this parameter is optional
-        anonymize: true,
-        // Setting this parameter is also optional
-        respectDNT: true,
-        sampleRate: 5,
-        siteSpeedSampleRate: 10,
-        cookieDomain: "jamesmckenzie.io"
+        // enable ip anonymization
+        anonymize: true
       }
     },
-    `gatsby-plugin-react-helmet`
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-robots-txt`
   ]
 };
