@@ -7,7 +7,7 @@ import { Helmet } from "react-helmet";
 import { graphql, StaticQuery } from "gatsby";
 
 const Footer = () => (
-  <Box py={3} color="white" bg="whitesmoke" as="footer">
+  <Box py={3} bg="whitesmoke" as="footer">
     <Text fontFamily="Raleway, sans-serif" textAlign="center">
       ❤️
     </Text>
@@ -32,6 +32,7 @@ const Layout: React.FunctionComponent = ({ children }) => (
           <meta name="Description" content={description} />
           <title>{`${title} | Home`}</title>
           <link rel="canonical" href={siteUrl} />
+          <html lang="en" />
         </Helmet>
       )}
     />
