@@ -121,7 +121,7 @@ const Hero = () => (
                 `}
                 lineHeight={1}
               >
-                software developer
+                software engineer
               </Text>{" "}
               <Text
                 fontFamily="Raleway, sans-serif"
