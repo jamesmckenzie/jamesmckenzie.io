@@ -70,7 +70,7 @@ const Hero = () => (
           <Text
             as="p"
             fontFamily="Raleway, sans-serif"
-            fontSize={fontSizes.map(s => s * 0.3)}
+            fontSize={fontSizes.map((s) => s * 0.3)}
             fontWeight={300}
             color="white"
             letterSpacing={-1}
@@ -90,7 +90,7 @@ const Hero = () => (
           <Text
             as="p"
             fontFamily="Raleway, sans-serif"
-            fontSize={fontSizes.map(s => s * 0.5)}
+            fontSize={fontSizes.map((s) => s * 0.5)}
             fontWeight={300}
             color="white"
             mt={3}
@@ -99,7 +99,7 @@ const Hero = () => (
             <Flex alignItems={["center"]}>
               <Text
                 fontFamily="Raleway, sans-serif"
-                fontSize={fontSizes.map(s => s * 0.4)}
+                fontSize={fontSizes.map((s) => s * 0.4)}
                 fontWeight={300}
                 color="white"
                 mt={2}
@@ -115,7 +115,7 @@ const Hero = () => (
                 py={3}
                 px={[2]}
                 fontFamily="Raleway, sans-serif"
-                fontSize={fontSizes.map(s => s * 0.5)}
+                fontSize={fontSizes.map((s) => s * 0.5)}
                 css={css`
                   border-radius: 6px;
                 `}
@@ -125,7 +125,7 @@ const Hero = () => (
               </Text>{" "}
               <Text
                 fontFamily="Raleway, sans-serif"
-                fontSize={fontSizes.map(s => s * 0.4)}
+                fontSize={fontSizes.map((s) => s * 0.4)}
                 fontWeight={300}
                 color="white"
                 letterSpacing={-1}
@@ -134,17 +134,20 @@ const Hero = () => (
                 from London
               </Text>
             </Flex>
-            <Text
-              as="p"
-              textAlign={["center"]}
-              fontSize={fontSizes.map(s => s * 0.5)}
-              mt={[4, 5, 6, 6]}
+            <Box
               css={css`
                 animation: ${waveAnimation} 7s infinite 3s linear;
               `}
             >
-              👋
-            </Text>
+              <Text
+                as="p"
+                textAlign={["center"]}
+                fontSize={fontSizes.map((s) => s * 0.5)}
+                mt={[4, 5, 6, 6]}
+              >
+                👋
+              </Text>
+            </Box>
           </Text>
         </Box>
       </Flex>
