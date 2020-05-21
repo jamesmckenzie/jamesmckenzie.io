@@ -8,7 +8,7 @@ import {
   TypescriptIcon,
   JavascriptIcon,
   ReduxIcon,
-  SassIcon
+  SassIcon,
 } from "../DevIcons";
 
 const StyledImg = styled(Img)`
@@ -40,36 +40,33 @@ const AboutMe: React.FunctionComponent<any> = ({ image }) => (
           as="p"
           fontFamily="Raleway, sans-serif"
           lineHeight={1.6}
+          px={5}
         >
-          <p>
-            I'm a multi-disciplined Software Engineer, currently building cool
-            stuff at JustGiving. I enjoy solving interesting problems with
-            occasionally novel solutions and understand that the best answer
-            isn't always the prettiest.
-          </p>
-          <Flex justifyContent="center">
-            <Flex width={[3 / 4, 3 / 4, 1 / 2]} mt={4}>
-              <Box width={[1]} mx={[1, 2]}>
-                <JavascriptIcon />
-              </Box>
-              <Box width={[1]} mx={[1, 2]}>
-                <TypescriptIcon />
-              </Box>
-              <Box width={[1]} mx={[1, 2]}>
-                <NodeIcon />
-              </Box>
-              <Box width={[1]} mx={[1, 2]}>
-                <ReactIcon />
-              </Box>
-              <Box width={[1]} mx={[1, 2]}>
-                <ReduxIcon />
-              </Box>
-              <Box width={[1]} mx={[1, 2]}>
-                <SassIcon />
-              </Box>
-            </Flex>
-          </Flex>
+          I'm a multi-disciplined Software Engineer, currently building the
+          future of banking at Checkout.com.
         </Text>
+        <Flex justifyContent="center">
+          <Flex width={[3 / 4, 3 / 4, 1 / 2]} mt={4}>
+            <Box width={[1]} mx={[1, 2]}>
+              <JavascriptIcon />
+            </Box>
+            <Box width={[1]} mx={[1, 2]}>
+              <TypescriptIcon />
+            </Box>
+            <Box width={[1]} mx={[1, 2]}>
+              <NodeIcon />
+            </Box>
+            <Box width={[1]} mx={[1, 2]}>
+              <ReactIcon />
+            </Box>
+            <Box width={[1]} mx={[1, 2]}>
+              <ReduxIcon />
+            </Box>
+            <Box width={[1]} mx={[1, 2]}>
+              <SassIcon />
+            </Box>
+          </Flex>
+        </Flex>
       </Box>
     </Flex>
   </Box>
