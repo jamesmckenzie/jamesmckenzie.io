@@ -2,19 +2,19 @@ module.exports = {
   siteMetadata: {
     title: "James McKenzie",
     description:
-      "A multi-disciplined Software Engineer, currently building cool stuff at JustGiving.",
-    siteUrl: "https://www.jamesmckenzie.io"
+      "A multi-disciplined Software Engineer, currently building the future of banking at Checkout.com.",
+    siteUrl: "https://www.jamesmckenzie.io",
   },
   plugins: [
     {
-      resolve: `gatsby-plugin-styled-components`
+      resolve: `gatsby-plugin-styled-components`,
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images/`
-      }
+        path: `${__dirname}/src/images/`,
+      },
     },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
@@ -24,23 +24,23 @@ module.exports = {
         fonts: [
           {
             family: `Neuton`,
-            variants: [`300`, `800`]
+            variants: [`300`, `800`],
           },
           {
             family: `Raleway`,
-            variants: [`400`, `400 italic`]
-          }
-        ]
-      }
+            variants: [`400`, `400 italic`],
+          },
+        ],
+      },
     },
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
           `Neuton\:300,800`,
-          `Raleway\:400,400i` // you can also specify font weights and styles
-        ]
-      }
+          `Raleway\:400,400i`, // you can also specify font weights and styles
+        ],
+      },
     },
     `gatsby-plugin-typescript`,
     {
@@ -51,11 +51,11 @@ module.exports = {
         // Puts tracking script in the head instead of the body
         head: true,
         // enable ip anonymization
-        anonymize: true
-      }
+        anonymize: true,
+      },
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-robots-txt`,
-    `gatsby-plugin-sitemap`
-  ]
+    `gatsby-plugin-sitemap`,
+  ],
 };

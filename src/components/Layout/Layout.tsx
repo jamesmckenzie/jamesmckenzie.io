@@ -7,7 +7,14 @@ import { Helmet } from "react-helmet";
 import { graphql, StaticQuery } from "gatsby";
 
 const Footer = () => (
-  <Box py={3} bg="whitesmoke" as="footer">
+  <Box
+    sx={{
+      borderTop: "1px solid #dcdcdc",
+    }}
+    py={3}
+    bg="whitesmoke"
+    as="footer"
+  >
     <Text fontFamily="Raleway, sans-serif" textAlign="center">
       ❤️
     </Text>
@@ -24,8 +31,8 @@ const Layout: React.FunctionComponent = ({ children }) => (
       query={query}
       render={({
         site: {
-          siteMetadata: { title, description, siteUrl }
-        }
+          siteMetadata: { title, description, siteUrl },
+        },
       }) => (
         <Helmet>
           <meta charSet="utf-8" />

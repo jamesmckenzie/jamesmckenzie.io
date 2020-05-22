@@ -13,23 +13,26 @@ import {
 
 const StyledImg = styled(Img)`
   border-radius: 50%;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
 `;
 
 const AboutMe: React.FunctionComponent<any> = ({ image }) => (
   <Box px={4} mt={4} mb={5}>
     <Flex flexDirection={["column", "row"]} alignItems="center">
-      <Box width={[7 / 8, 1 / 3, 1 / 3]} px={[5, 0, 4, 5]} mb={4}>
+      <Box width={[7 / 8, 1 / 3, 1 / 3]} px={[5, 0, 4, 5]} mb={[4, 0]}>
         <StyledImg fluid={image.childImageSharp.fluid} />
       </Box>
       <Box
         width={[1, 2 / 3, 2 / 3]}
         px={[2, 4, 3]}
-        py={4}
+        py={5}
         ml={[0, 4, 0]}
-        css={`
-          box-shadow: 0 20px 25px 5px rgba(0, 0, 0, 0.1),
-            0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        `}
+        sx={{
+          borderRadius: "5px",
+          boxShadow: `0 8px 26px rgba(0, 0, 0, 0.1), 
+          0 16px 22px rgba(0, 0, 0, 0.08)`,
+        }}
       >
         <Box mb={4}>
           <Text
