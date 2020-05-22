@@ -21,7 +21,16 @@ const AboutMe: React.FunctionComponent<any> = ({ image }) => (
       <Box width={[7 / 8, 1 / 3, 1 / 3]} px={[5, 0, 4, 5]} mb={4}>
         <StyledImg fluid={image.childImageSharp.fluid} />
       </Box>
-      <Box width={[1, 2 / 3, 2 / 3]} px={[2, 4, 3]}>
+      <Box
+        width={[1, 2 / 3, 2 / 3]}
+        px={[2, 4, 3]}
+        py={4}
+        ml={[0, 4, 0]}
+        css={`
+          box-shadow: 0 20px 25px 5px rgba(0, 0, 0, 0.1),
+            0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        `}
+      >
         <Box mb={4}>
           <Text
             as="h2"
@@ -40,7 +49,7 @@ const AboutMe: React.FunctionComponent<any> = ({ image }) => (
           as="p"
           fontFamily="Raleway, sans-serif"
           lineHeight={1.6}
-          px={5}
+          px={[3, 3, 5]}
         >
           I'm a multi-disciplined Software Engineer, currently building the
           future of banking at Checkout.com.
