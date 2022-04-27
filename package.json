@@ -1,40 +1,44 @@
 {
-  "name": "gatsby-starter-hello-world",
-  "description": "Gatsby hello world starter",
-  "license": "MIT",
+  "name": "remix-template-netlify",
+  "private": true,
+  "description": "",
+  "license": "",
+  "sideEffects": false,
   "scripts": {
-    "dev": "gatsby develop",
-    "build": "gatsby build",
-    "serve": "gatsby serve",
-    "deploy": "gatsby build && gh-pages -b master -d public"
+    "build": "run-s build:*",
+    "build:css": "npm run generate:css -- --minify",
+    "build:remix": "remix build",
+    "dev": "run-p dev:*",
+    "dev:css": "pnpm run generate:css -- --watch",
+    "dev:remix": "NODE_ENV=development netlify dev",
+    "generate:css": "tailwindcss -i ./styles/app.css -o app/styles/app.css",
+    "start": "NODE_ENV=production netlify dev"
   },
   "dependencies": {
-    "@types/react-helmet": "^6.0.0",
-    "babel-plugin-styled-components": "^1.10.7",
-    "gatsby": "^2.22.5",
-    "gatsby-image": "^2.4.5",
-    "gatsby-plugin-google-fonts": "^1.0.1",
-    "gatsby-plugin-gtag": "^1.0.13",
-    "gatsby-plugin-prefetch-google-fonts": "^1.4.3",
-    "gatsby-plugin-react-helmet": "^3.3.2",
-    "gatsby-plugin-robots-txt": "^1.5.0",
-    "gatsby-plugin-sharp": "^2.6.8",
-    "gatsby-plugin-sitemap": "^2.4.3",
-    "gatsby-plugin-styled-components": "^3.3.2",
-    "gatsby-plugin-typescript": "^2.4.3",
-    "gatsby-source-filesystem": "^2.3.7",
-    "gatsby-transformer-sharp": "^2.5.3",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-helmet": "^6.0.0",
-    "react-icons": "^3.10.0",
-    "rebass": "^4.0.7",
-    "styled-components": "^5.1.0",
-    "typeface-lato": "^0.0.75"
+    "@netlify/functions": "^0.10.0",
+    "@remix-run/netlify": "^1.4.0",
+    "@remix-run/node": "^1.4.0",
+    "@remix-run/react": "^1.4.0",
+    "cross-env": "^7.0.3",
+    "npm-run-all": "^4.1.5",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.3.1",
+    "typed.js": "^2.0.12"
   },
   "devDependencies": {
-    "@types/rebass": "^4.0.6",
-    "@types/styled-components": "^5.1.0",
-    "gh-pages": "^2.2.0"
+    "@remix-run/dev": "^1.4.0",
+    "@remix-run/eslint-config": "^1.4.0",
+    "@types/react": "^17.0.24",
+    "@types/react-dom": "^17.0.9",
+    "autoprefixer": "^10.4.4",
+    "concurrently": "^7.1.0",
+    "eslint": "^8.11.0",
+    "postcss": "^8.4.12",
+    "tailwindcss": "^3.0.24",
+    "typescript": "^4.5.5"
+  },
+  "engines": {
+    "node": ">=14"
   }
 }
