@@ -87,7 +87,7 @@ var getColorScheme = async (request) => {
 };
 
 // app/styles/app.css
-var app_default = "/build/_assets/app-CYOZEHLB.css";
+var app_default = "/build/_assets/app-7TNCFUKP.css";
 
 // route:/Users/jamesmckenzie/repos/jamesmckenzie.io/app/root.tsx
 function links() {
@@ -141,69 +141,23 @@ var action = async ({ request }) => {
   });
 };
 
-// route:/Users/jamesmckenzie/repos/jamesmckenzie.io/app/routes/index.tsx
-var routes_exports = {};
-__export(routes_exports, {
-  default: () => routes_default
+// route:/Users/jamesmckenzie/repos/jamesmckenzie.io/app/routes/contact.tsx
+var contact_exports = {};
+__export(contact_exports, {
+  default: () => contact_default
 });
-var import_react4 = __toESM(require("react"));
 
-// app/components/Hero/Hero.tsx
-var Hero = () => /* @__PURE__ */ React.createElement("section", {
-  className: "h-screen flex items-center"
-}, /* @__PURE__ */ React.createElement("div", {
-  className: "space-y-8"
-}, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", {
-  className: "ml-2 lg:ml-4"
-}, /* @__PURE__ */ React.createElement("span", {
-  className: "text-purple-900 text-lg font-inconsolata dark:text-white"
-}, "Hi, my name is")), /* @__PURE__ */ React.createElement("div", {
-  className: "lg:-ml-4"
-}, /* @__PURE__ */ React.createElement("h1", {
-  className: "text-6xl lg:text-8xl text-pink-700 dark:text-pink-500 font-poppins font-bold uppercase saturate-150 tracking-tight"
-}, "James McKenzie.")), /* @__PURE__ */ React.createElement("div", {
-  className: "ml-1 lg:ml-2 "
-}, /* @__PURE__ */ React.createElement("h2", {
-  className: "text-purple-900 text-xl lg:text-3xl font-poppins font-bold dark:text-white"
-}, "Your Friendly neighbourhood software engineer."))), /* @__PURE__ */ React.createElement("div", {
-  className: "ml-1 lg:ml-2 max-w-2xl"
-}, /* @__PURE__ */ React.createElement("span", {
-  className: "text-zinc-700 text-base dark:text-white"
-}, "I'm a multi-disciplined Software Engineer, currently building the future of banking at", " ", /* @__PURE__ */ React.createElement("a", {
-  className: "text-pink-700 dark:text-pink-500 font-bold hover:underline hover:saturate-150 focus:saturate-150 focus:outline-none focus-visible:ring-4  rounded-sm transition-all",
-  href: "https://www.checkout.com/"
-}, "Checkout.com"), ". Specialising in modern ", /* @__PURE__ */ React.createElement("strong", null, "front end architecture"), " and", " ", /* @__PURE__ */ React.createElement("strong", null, "tooling"), ", I primarily work in", " ", /* @__PURE__ */ React.createElement("strong", null, "Typescript"), ", as well as staying up to date with modern application and systems programming in languages such as", " ", /* @__PURE__ */ React.createElement("strong", null, "Rust"), " and ", /* @__PURE__ */ React.createElement("strong", null, "Golang"), ".")), /* @__PURE__ */ React.createElement("div", {
-  className: "ml-1 lg:ml-2"
-}, /* @__PURE__ */ React.createElement("a", {
-  href: "mailto:hello@jamesmckenzie.io",
-  className: "font-inconsolata shadow-lg shadow-pink-400/50 border-2 border-purple-700 rounded px-4 py-2 text-lg uppercase text-purple-700 hover:text-white focus:text-white hover:bg-purple-700 focus:bg-purple-700 transition-colors hover:saturate-150 inline-block cursor-pointer outline-offset-4 dark:border-white dark:hover:border-pink-500 dark:focus:border-pink-500 dark:text-white dark:shadow-pink-700/50 dark:hover:bg-pink-500 dark:focus:bg-pink-500 focus:outline-none focus-visible:ring-4 "
-}, "Get in touch"))));
-var Hero_default = Hero;
+// app/components/Layout/Layout.tsx
+var import_react5 = __toESM(require("react"));
 
-// app/components/SocialBar/SocialBar.tsx
-var import_fi = require("react-icons/fi");
-var SocialBar = () => /* @__PURE__ */ React.createElement("div", {
-  className: "flex space-x-8 text-pink-700 dark:text-white "
-}, /* @__PURE__ */ React.createElement("a", {
-  className: "hover:saturate-150 focus:saturate-150 dark:hover:text-pink-500 dark:focus:text-pink-500 transition-all focus:outline-none focus-visible:ring-4  rounded-lg p-0.5",
-  href: "https://github.com/jamesmckenzie",
-  "aria-label": "View James McKenzie's Github page"
-}, /* @__PURE__ */ React.createElement(import_fi.FiGithub, {
-  size: "2.5em"
-})), /* @__PURE__ */ React.createElement("a", {
-  className: "hover:saturate-150 focus:saturate-150 dark:hover:text-pink-500 dark:focus:text-pink-500 transition focus:outline-none focus-visible:ring-4  rounded-lg p-0.5",
-  href: "https://twitter.com/jmc_kenzie",
-  "aria-label": "View James McKenzie's Twitter profile"
-}, /* @__PURE__ */ React.createElement(import_fi.FiTwitter, {
-  size: "2.5em"
-})), /* @__PURE__ */ React.createElement("a", {
-  className: "hover:saturate-150 focus:saturate-150 dark:hover:text-pink-500 dark:focus:text-pink-500 transition-all focus:outline-none focus-visible:ring-4  rounded-lg p-0.5",
-  href: "https://www.linkedin.com/in/james-mckenzie-10975314/",
-  "aria-label": "View James McKenzie's LinkedIn profile"
-}, /* @__PURE__ */ React.createElement(import_fi.FiLinkedin, {
-  size: "2.5em"
-})));
-var SocialBar_default = SocialBar;
+// app/components/Backround/Background.tsx
+var Background = ({ children }) => /* @__PURE__ */ React.createElement("div", {
+  className: " bg-gradient-to-r from-purple-100 via-purple-200 to-blue-200 dark:from-purple-900 dark:via-purple-800 dark:to-blue-900"
+}, children);
+var Background_default = Background;
+
+// app/components/Header/Header.tsx
+var import_react4 = require("@remix-run/react");
 
 // app/components/DarkModeToggle/index.tsx
 var import_react3 = require("@remix-run/react");
@@ -224,7 +178,7 @@ var DarkModeToggle = () => {
     },
     id: "theme-toggle",
     type: "submit",
-    className: "text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus-visible:ring-4  rounded-lg text-sm p-2.5 transition-colors"
+    className: "text-gray-500 dark:text-gray-400 hover:bg-gray-200 hover:shadow-inner dark:hover:bg-gray-800 focus:outline-none focus-visible:ring-4  rounded-lg text-sm p-2.5 transition-all"
   }, /* @__PURE__ */ React.createElement("svg", {
     className: "dark:hidden",
     width: "24",
@@ -295,24 +249,127 @@ var DarkModeToggle = () => {
 };
 var DarkModeToggle_default = DarkModeToggle;
 
+// app/components/SocialBar/SocialBar.tsx
+var import_fi = require("react-icons/fi");
+var SocialBar = () => /* @__PURE__ */ React.createElement("div", {
+  className: "flex space-x-8 text-pink-700 dark:text-white "
+}, /* @__PURE__ */ React.createElement("a", {
+  className: "hover:saturate-150 focus:saturate-150 dark:hover:text-pink-500 dark:focus:text-pink-500 transition-all focus:outline-none focus-visible:ring-4  rounded-lg p-0.5",
+  href: "https://github.com/jamesmckenzie",
+  "aria-label": "View James McKenzie's Github page"
+}, /* @__PURE__ */ React.createElement(import_fi.FiGithub, {
+  size: "2.5em"
+})), /* @__PURE__ */ React.createElement("a", {
+  className: "hover:saturate-150 focus:saturate-150 dark:hover:text-pink-500 dark:focus:text-pink-500 transition focus:outline-none focus-visible:ring-4  rounded-lg p-0.5",
+  href: "https://twitter.com/jmc_kenzie",
+  "aria-label": "View James McKenzie's Twitter profile"
+}, /* @__PURE__ */ React.createElement(import_fi.FiTwitter, {
+  size: "2.5em"
+})), /* @__PURE__ */ React.createElement("a", {
+  className: "hover:saturate-150 focus:saturate-150 dark:hover:text-pink-500 dark:focus:text-pink-500 transition-all focus:outline-none focus-visible:ring-4  rounded-lg p-0.5",
+  href: "https://www.linkedin.com/in/james-mckenzie-10975314/",
+  "aria-label": "View James McKenzie's LinkedIn profile"
+}, /* @__PURE__ */ React.createElement(import_fi.FiLinkedin, {
+  size: "2.5em"
+})));
+var SocialBar_default = SocialBar;
+
+// app/components/Header/Header.tsx
+var Header = () => {
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement(SocialBar_default, null), /* @__PURE__ */ React.createElement("div", {
+    className: "flex space-x-4 items-center"
+  }, /* @__PURE__ */ React.createElement("div", {
+    className: "flex space-x-2"
+  }, /* @__PURE__ */ React.createElement(import_react4.NavLink, {
+    to: "/",
+    className: ({ isActive }) => `px-4 transition-all focus:outline-none focus-visible:ring-4 rounded h-[44px] flex items-center hover:bg-gray-200 hover:shadow-inner dark:hover:bg-gray-800  ${isActive && "underline underline-offset-4 decoration-pink-700 decoration-4"}`
+  }, /* @__PURE__ */ React.createElement("span", {
+    className: "text-lg font-bold text-purple-900 dark:text-white"
+  }, "Home")), /* @__PURE__ */ React.createElement(import_react4.NavLink, {
+    to: "/contact",
+    className: ({ isActive }) => `px-4 transition-all focus:outline-none focus-visible:ring-4 rounded h-[44px] flex items-center hover:bg-gray-200 hover:shadow-inner dark:hover:bg-gray-800 ${isActive && "underline underline-offset-4 decoration-pink-700 decoration-4"}`
+  }, /* @__PURE__ */ React.createElement("span", {
+    className: "text-lg font-bold text-purple-900 dark:text-white"
+  }, "Contact"))), /* @__PURE__ */ React.createElement(DarkModeToggle_default, null)));
+};
+var Header_default = Header;
+
+// app/components/Layout/Layout.tsx
+var Layout = ({ children }) => /* @__PURE__ */ import_react5.default.createElement(Background_default, null, /* @__PURE__ */ import_react5.default.createElement("div", {
+  className: " relative px-8 lg:px-32"
+}, /* @__PURE__ */ import_react5.default.createElement("section", {
+  className: "flex w-full justify-between h-20 py-4"
+}, /* @__PURE__ */ import_react5.default.createElement(Header_default, null)), children));
+var Layout_default = Layout;
+
+// route:/Users/jamesmckenzie/repos/jamesmckenzie.io/app/routes/contact.tsx
+var Contact = () => {
+  return /* @__PURE__ */ React.createElement(Layout_default, null, /* @__PURE__ */ React.createElement("section", {
+    className: "-mt-20 h-screen flex items-center justify-center"
+  }, /* @__PURE__ */ React.createElement("div", {
+    className: "shadow-md rounded p-16 bg-white space-y-4"
+  }, /* @__PURE__ */ React.createElement("div", {
+    className: "space-x-4"
+  }, /* @__PURE__ */ React.createElement("input", {
+    className: "border-2 border-gray-300 rounded px-4 py-2"
+  }), /* @__PURE__ */ React.createElement("input", {
+    className: "border-2 border-gray-300 rounded px-4 py-2"
+  })), /* @__PURE__ */ React.createElement("input", {
+    className: "border-2 border-gray-300 rounded px-4 py-2 w-full"
+  }), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("textarea", {
+    className: "border-2 border-gray-300 rounded w-full"
+  })))));
+};
+var contact_default = Contact;
+
+// route:/Users/jamesmckenzie/repos/jamesmckenzie.io/app/routes/index.tsx
+var routes_exports = {};
+__export(routes_exports, {
+  default: () => routes_default
+});
+var import_react7 = __toESM(require("react"));
+
+// app/components/Hero/Hero.tsx
+var import_react6 = require("@remix-run/react");
+var Hero = () => /* @__PURE__ */ React.createElement("div", {
+  className: "space-y-8 animate-fade"
+}, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", {
+  className: "ml-2 lg:ml-4"
+}, /* @__PURE__ */ React.createElement("span", {
+  className: "text-purple-900 text-lg font-inconsolata dark:text-white"
+}, "Hi, my name is")), /* @__PURE__ */ React.createElement("div", {
+  className: "lg:-ml-4"
+}, /* @__PURE__ */ React.createElement("h1", {
+  className: "text-6xl lg:text-8xl text-pink-700 dark:text-pink-500 font-poppins font-bold uppercase saturate-150 tracking-tight"
+}, "James McKenzie.")), /* @__PURE__ */ React.createElement("div", {
+  className: "ml-1 lg:ml-2 "
+}, /* @__PURE__ */ React.createElement("h2", {
+  className: "text-purple-900 text-xl lg:text-3xl font-poppins font-bold dark:text-white"
+}, "Your Friendly neighbourhood software engineer."))), /* @__PURE__ */ React.createElement("div", {
+  className: "ml-1 lg:ml-2 max-w-2xl"
+}, /* @__PURE__ */ React.createElement("span", {
+  className: "text-zinc-700 text-base dark:text-white"
+}, "I'm a multi-disciplined Software Engineer, currently building the future of banking at", " ", /* @__PURE__ */ React.createElement("a", {
+  className: "text-pink-700 dark:text-pink-500 font-bold hover:underline hover:saturate-150 focus:saturate-150 focus:outline-none focus-visible:ring-4  rounded-sm transition-all",
+  href: "https://www.checkout.com/"
+}, "Checkout.com"), ". Specialising in modern ", /* @__PURE__ */ React.createElement("strong", null, "front end architecture"), " and", " ", /* @__PURE__ */ React.createElement("strong", null, "tooling"), ", I primarily work in", " ", /* @__PURE__ */ React.createElement("strong", null, "Typescript"), ", as well as staying up to date with modern application and systems programming in languages such as", " ", /* @__PURE__ */ React.createElement("strong", null, "Rust"), " and ", /* @__PURE__ */ React.createElement("strong", null, "Golang"), ".")), /* @__PURE__ */ React.createElement("div", {
+  className: "ml-1 lg:ml-2"
+}, /* @__PURE__ */ React.createElement(import_react6.Link, {
+  to: "/contact",
+  className: "font-inconsolata shadow-lg shadow-pink-400/50 border-2 border-purple-700 rounded px-4 py-2 text-lg uppercase text-purple-700 hover:text-white focus:text-white hover:bg-purple-700 focus:bg-purple-700 transition-colors hover:saturate-150 inline-block cursor-pointer outline-offset-4 dark:border-white dark:hover:border-pink-500 dark:focus:border-pink-500 dark:text-white dark:shadow-pink-700/50 dark:hover:bg-pink-500 dark:focus:bg-pink-500 focus:outline-none focus-visible:ring-4 "
+}, "Get in touch")));
+var Hero_default = Hero;
+
 // route:/Users/jamesmckenzie/repos/jamesmckenzie.io/app/routes/index.tsx
 var HomePage = () => {
-  return /* @__PURE__ */ import_react4.default.createElement("div", {
-    className: " bg-gradient-to-r from-purple-100 via-purple-200 to-blue-200 dark:from-purple-900 dark:via-purple-800 dark:to-blue-900"
-  }, /* @__PURE__ */ import_react4.default.createElement("div", {
-    className: "animate-fade relative px-8 lg:px-32"
-  }, /* @__PURE__ */ import_react4.default.createElement("section", {
-    className: "flex w-full justify-between h-20 py-4"
-  }, /* @__PURE__ */ import_react4.default.createElement(SocialBar_default, null), /* @__PURE__ */ import_react4.default.createElement("div", {
-    className: ""
-  }, /* @__PURE__ */ import_react4.default.createElement(DarkModeToggle_default, null))), /* @__PURE__ */ import_react4.default.createElement("div", {
-    className: "-mt-20"
-  }, /* @__PURE__ */ import_react4.default.createElement(Hero_default, null))));
+  return /* @__PURE__ */ import_react7.default.createElement(Layout_default, null, /* @__PURE__ */ import_react7.default.createElement("section", {
+    className: "-mt-20 h-screen flex items-center"
+  }, /* @__PURE__ */ import_react7.default.createElement(Hero_default, null)));
 };
 var routes_default = HomePage;
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { "version": "6cb15396", "entry": { "module": "/build/entry.client-4MZGRLP3.js", "imports": ["/build/_shared/chunk-M74FEUZ4.js", "/build/_shared/chunk-JSO5GUHK.js"] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "module": "/build/root-IEINPJPH.js", "imports": void 0, "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/action/setTheme": { "id": "routes/action/setTheme", "parentId": "root", "path": "action/setTheme", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/action/setTheme-YUOOPRQ4.js", "imports": void 0, "hasAction": true, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/index": { "id": "routes/index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "module": "/build/routes/index-YPV5PNIU.js", "imports": void 0, "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false } }, "url": "/build/manifest-6CB15396.js" };
+var assets_manifest_default = { "version": "fbfdd1c9", "entry": { "module": "/build/entry.client-BL6ZOP3O.js", "imports": ["/build/_shared/chunk-FKR6CAAF.js", "/build/_shared/chunk-JSO5GUHK.js"] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "module": "/build/root-BHQPCSWQ.js", "imports": void 0, "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/action/setTheme": { "id": "routes/action/setTheme", "parentId": "root", "path": "action/setTheme", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/action/setTheme-YUOOPRQ4.js", "imports": void 0, "hasAction": true, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/contact-SKK24M44.js", "imports": ["/build/_shared/chunk-HNO2RALL.js"], "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/index": { "id": "routes/index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "module": "/build/routes/index-K5GRVQO4.js", "imports": ["/build/_shared/chunk-HNO2RALL.js"], "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false } }, "url": "/build/manifest-FBFDD1C9.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var entry = { module: entry_server_exports };
@@ -332,6 +389,14 @@ var routes = {
     index: void 0,
     caseSensitive: void 0,
     module: setTheme_exports
+  },
+  "routes/contact": {
+    id: "routes/contact",
+    parentId: "root",
+    path: "contact",
+    index: void 0,
+    caseSensitive: void 0,
+    module: contact_exports
   },
   "routes/index": {
     id: "routes/index",

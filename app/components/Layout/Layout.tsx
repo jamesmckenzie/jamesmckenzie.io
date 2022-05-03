@@ -1,19 +1,16 @@
 import React from "react";
-import AboutMe from "../Footer/Footer";
-import { SocialBar } from "../SocialBar";
-
-const Footer = () => (
-  <footer className="bg-gray-400 py-6 border-solid border-t border-gray-200">
-    <AboutMe />
-  </footer>
-);
+import Background from "../Backround";
+import Header from "../Header";
 
 const Layout: React.FunctionComponent = ({ children }) => (
-  <div className="h-full bg-purple-900">
-    <SocialBar />
-    {children}
-    <Footer />
-  </div>
+  <Background>
+    <div className=" relative px-8 lg:px-32">
+      <section className="flex w-full justify-between h-20 py-4">
+        <Header />
+      </section>
+      {children}
+    </div>
+  </Background>
 );
 
 export default Layout;

@@ -18,7 +18,7 @@ const DarkModeToggle = () => {
         }}
         id="theme-toggle"
         type="submit"
-        className="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus-visible:ring-4  rounded-lg text-sm p-2.5 transition-colors"
+        className="text-gray-500 dark:text-gray-400 hover:bg-gray-200 hover:shadow-inner dark:hover:bg-gray-800 focus:outline-none focus-visible:ring-4  rounded-lg text-sm p-2.5 transition-all"
       >
         <svg
           className="dark:hidden"
