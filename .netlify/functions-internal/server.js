@@ -87,7 +87,7 @@ var getColorScheme = async (request) => {
 };
 
 // app/styles/app.css
-var app_default = "/build/_assets/app-5AIZVAUX.css";
+var app_default = "/build/_assets/app-IV6JPI4Z.css";
 
 // route:/Users/jamesmckenzie/repos/jamesmckenzie.io/app/root.tsx
 function links() {
@@ -109,7 +109,7 @@ var meta = () => ({
   charset: "utf-8",
   title: "James McKenzie | Home",
   viewport: "width=device-width,initial-scale=1",
-  description: "A multi-disciplined Software Engineer based in London. currently building the future of banking at Checkout.com."
+  description: "A multi-disciplined Software Engineer based in London. Currently building the future of banking at Checkout.com."
 });
 var headers = () => ({
   "Accept-CH": "Sec-CH-Prefers-Color-Scheme"
@@ -125,10 +125,25 @@ function App() {
   }, /* @__PURE__ */ React.createElement("head", null, /* @__PURE__ */ React.createElement(import_react2.Meta, null), /* @__PURE__ */ React.createElement(import_react2.Links, null)), /* @__PURE__ */ React.createElement("body", null, /* @__PURE__ */ React.createElement(import_react2.Outlet, null), /* @__PURE__ */ React.createElement(import_react2.ScrollRestoration, null), /* @__PURE__ */ React.createElement(import_react2.Scripts, null), /* @__PURE__ */ React.createElement(import_react2.LiveReload, null)));
 }
 
+// route:/Users/jamesmckenzie/repos/jamesmckenzie.io/app/routes/action/setTheme.tsx
+var setTheme_exports = {};
+__export(setTheme_exports, {
+  action: () => action
+});
+var import_node2 = require("@remix-run/node");
+var action = async ({ request }) => {
+  const currentColorScheme = await getColorScheme(request);
+  const newColorScheme = currentColorScheme === "light" ? "dark" : "light";
+  return (0, import_node2.json)({ success: true }, {
+    headers: {
+      "Set-Cookie": await colorSchemeCookie.serialize(newColorScheme)
+    }
+  });
+};
+
 // route:/Users/jamesmckenzie/repos/jamesmckenzie.io/app/routes/index.tsx
 var routes_exports = {};
 __export(routes_exports, {
-  action: () => action,
   default: () => routes_default
 });
 var import_react4 = __toESM(require("react"));
@@ -190,14 +205,13 @@ var SocialBar = () => /* @__PURE__ */ React.createElement("div", {
 })));
 var SocialBar_default = SocialBar;
 
-// route:/Users/jamesmckenzie/repos/jamesmckenzie.io/app/routes/index.tsx
-var import_node2 = require("@remix-run/node");
-
 // app/components/DarkModeToggle/index.tsx
 var import_react3 = require("@remix-run/react");
 var DarkModeToggle = () => {
-  return /* @__PURE__ */ React.createElement(import_react3.Form, {
-    method: "post"
+  const fetcher = (0, import_react3.useFetcher)();
+  return /* @__PURE__ */ React.createElement(fetcher.Form, {
+    method: "post",
+    action: "/action/setTheme"
   }, /* @__PURE__ */ React.createElement("button", {
     onClick: () => {
       const html = document.getElementsByTagName("html")[0];
@@ -281,32 +295,23 @@ var DarkModeToggle = () => {
 var DarkModeToggle_default = DarkModeToggle;
 
 // route:/Users/jamesmckenzie/repos/jamesmckenzie.io/app/routes/index.tsx
-var action = async ({ request }) => {
-  const currentColorScheme = await getColorScheme(request);
-  const newColorScheme = currentColorScheme === "light" ? "dark" : "light";
-  return (0, import_node2.redirect)(request.url, {
-    headers: {
-      "Set-Cookie": await colorSchemeCookie.serialize(newColorScheme)
-    }
-  });
-};
 var HomePage = () => {
   return /* @__PURE__ */ import_react4.default.createElement("div", {
-    className: "bg-gradient-to-r from-purple-100 via-purple-200 to-blue-200 dark:from-purple-900 dark:via-purple-800 dark:to-blue-900"
+    className: " bg-gradient-to-r from-purple-100 via-purple-200 to-blue-200 dark:from-purple-900 dark:via-purple-800 dark:to-blue-900"
   }, /* @__PURE__ */ import_react4.default.createElement("div", {
-    className: "animate-fade"
-  }, /* @__PURE__ */ import_react4.default.createElement("div", {
-    className: "absolute w-full justify-between flex px-8 lg:px-32 pt-4 h-20"
+    className: "animate-fade relative px-8 lg:px-32"
+  }, /* @__PURE__ */ import_react4.default.createElement("section", {
+    className: "flex w-full justify-between h-20 py-4"
   }, /* @__PURE__ */ import_react4.default.createElement(SocialBar_default, null), /* @__PURE__ */ import_react4.default.createElement("div", {
     className: ""
   }, /* @__PURE__ */ import_react4.default.createElement(DarkModeToggle_default, null))), /* @__PURE__ */ import_react4.default.createElement("div", {
-    className: "max-w-7xl m-auto px-8 lg:px-32"
+    className: "-mt-20"
   }, /* @__PURE__ */ import_react4.default.createElement(Hero_default, null))));
 };
 var routes_default = HomePage;
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { "version": "f4e18e71", "entry": { "module": "/build/entry.client-WXLXOLJC.js", "imports": ["/build/_shared/chunk-XKP6S3VK.js"] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "module": "/build/root-5PISIBAD.js", "imports": void 0, "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/index": { "id": "routes/index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "module": "/build/routes/index-2OTJRQBD.js", "imports": void 0, "hasAction": true, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false } }, "url": "/build/manifest-F4E18E71.js" };
+var assets_manifest_default = { "version": "158248c7", "entry": { "module": "/build/entry.client-RTTJKFQJ.js", "imports": ["/build/_shared/chunk-OWSZHUBW.js", "/build/_shared/chunk-JSO5GUHK.js"] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "module": "/build/root-BMQH2APM.js", "imports": void 0, "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/action/setTheme": { "id": "routes/action/setTheme", "parentId": "root", "path": "action/setTheme", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/action/setTheme-YUOOPRQ4.js", "imports": void 0, "hasAction": true, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/index": { "id": "routes/index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "module": "/build/routes/index-WXZHP4RY.js", "imports": void 0, "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false } }, "url": "/build/manifest-158248C7.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var entry = { module: entry_server_exports };
@@ -318,6 +323,14 @@ var routes = {
     index: void 0,
     caseSensitive: void 0,
     module: root_exports
+  },
+  "routes/action/setTheme": {
+    id: "routes/action/setTheme",
+    parentId: "root",
+    path: "action/setTheme",
+    index: void 0,
+    caseSensitive: void 0,
+    module: setTheme_exports
   },
   "routes/index": {
     id: "routes/index",

@@ -1,8 +1,10 @@
-import { Form } from "@remix-run/react";
+import { useFetcher } from "@remix-run/react";
 
 const DarkModeToggle = () => {
+  const fetcher = useFetcher();
+
   return (
-    <Form method="post">
+    <fetcher.Form method="post" action="/action/setTheme">
       <button
         onClick={() => {
           const html = document.getElementsByTagName("html")[0];
@@ -52,7 +54,7 @@ const DarkModeToggle = () => {
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
         </svg>
       </button>
-    </Form>
+    </fetcher.Form>
   );
 };
 
