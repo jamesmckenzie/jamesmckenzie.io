@@ -17,19 +17,12 @@ const Input = ({ id, labelValue, type }: any) => {
 const Contact = () => {
   return (
     <Layout>
-      <section className="-mt-20 h-screen flex items-center justify-center ">
+      <section className="-mt-20 h-screen flex flex-col items-stretch justify-center">
         <form name="contact" data-netlify="true">
-          <div className="shadow-md rounded p-16 bg-white space-y-4">
+          <div className="shadow-md rounded py-8 px-12 bg-white space-y-4 mx-32">
             <div className="space-y-4 md:space-x-4">
-              <div className="inline-block w-full md:w-auto">
-                <Input
-                  type="text"
-                  id="firstName"
-                  labelValue="First name"
-                ></Input>
-              </div>
-              <div className="inline-block w-full md:w-auto">
-                <Input type="text" id="lastName" labelValue="Last name"></Input>
+              <div className="">
+                <Input type="text" id="name" labelValue="Name"></Input>
               </div>
             </div>
             <div className="">

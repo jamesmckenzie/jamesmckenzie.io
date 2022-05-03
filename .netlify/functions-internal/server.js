@@ -116,7 +116,7 @@ var getColorScheme = async (request) => {
 };
 
 // app/styles/app.css
-var app_default = "/build/_assets/app-ULKONFJ4.css";
+var app_default = "/build/_assets/app-NA533JPS.css";
 
 // route:/Users/jamesmckenzie/repos/jamesmckenzie.io/app/root.tsx
 function links() {
@@ -347,26 +347,20 @@ var Input = ({ id, labelValue, type }) => {
 };
 var Contact = () => {
   return /* @__PURE__ */ React.createElement(Layout_default, null, /* @__PURE__ */ React.createElement("section", {
-    className: "-mt-20 h-screen flex items-center justify-center "
+    className: "-mt-20 h-screen flex flex-col items-stretch justify-center"
   }, /* @__PURE__ */ React.createElement("form", {
     name: "contact",
     "data-netlify": "true"
   }, /* @__PURE__ */ React.createElement("div", {
-    className: "shadow-md rounded p-16 bg-white space-y-4"
+    className: "shadow-md rounded py-8 px-12 bg-white space-y-4 mx-32"
   }, /* @__PURE__ */ React.createElement("div", {
     className: "space-y-4 md:space-x-4"
   }, /* @__PURE__ */ React.createElement("div", {
-    className: "inline-block w-full md:w-auto"
+    className: ""
   }, /* @__PURE__ */ React.createElement(Input, {
     type: "text",
-    id: "firstName",
-    labelValue: "First name"
-  })), /* @__PURE__ */ React.createElement("div", {
-    className: "inline-block w-full md:w-auto"
-  }, /* @__PURE__ */ React.createElement(Input, {
-    type: "text",
-    id: "lastName",
-    labelValue: "Last name"
+    id: "name",
+    labelValue: "Name"
   }))), /* @__PURE__ */ React.createElement("div", {
     className: ""
   }, /* @__PURE__ */ React.createElement(Input, {
@@ -433,7 +427,7 @@ var HomePage = () => {
 var routes_default = HomePage;
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { "version": "faeced56", "entry": { "module": "/build/entry.client-BL6ZOP3O.js", "imports": ["/build/_shared/chunk-FKR6CAAF.js", "/build/_shared/chunk-JSO5GUHK.js"] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "module": "/build/root-4CZZWXMR.js", "imports": void 0, "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/action/setTheme": { "id": "routes/action/setTheme", "parentId": "root", "path": "action/setTheme", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/action/setTheme-YUOOPRQ4.js", "imports": void 0, "hasAction": true, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/contact-O2BBZL7N.js", "imports": ["/build/_shared/chunk-TJ3FBU6I.js"], "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/index": { "id": "routes/index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "module": "/build/routes/index-RLDVJXFC.js", "imports": ["/build/_shared/chunk-TJ3FBU6I.js"], "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false } }, "url": "/build/manifest-FAECED56.js" };
+var assets_manifest_default = { "version": "c25a428b", "entry": { "module": "/build/entry.client-BL6ZOP3O.js", "imports": ["/build/_shared/chunk-FKR6CAAF.js", "/build/_shared/chunk-JSO5GUHK.js"] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "module": "/build/root-GXSHHIRK.js", "imports": void 0, "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/action/setTheme": { "id": "routes/action/setTheme", "parentId": "root", "path": "action/setTheme", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/action/setTheme-YUOOPRQ4.js", "imports": void 0, "hasAction": true, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/contact-VNFFCH4E.js", "imports": ["/build/_shared/chunk-TJ3FBU6I.js"], "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/index": { "id": "routes/index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "module": "/build/routes/index-RLDVJXFC.js", "imports": ["/build/_shared/chunk-TJ3FBU6I.js"], "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false } }, "url": "/build/manifest-C25A428B.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var entry = { module: entry_server_exports };
