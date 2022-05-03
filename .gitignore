@@ -59,7 +59,7 @@ typings/
 
 
 .cache/
-public
+public/build
 yarn-error.log
 .DS_Store
 
