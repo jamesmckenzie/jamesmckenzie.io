@@ -87,7 +87,7 @@ var getColorScheme = async (request) => {
 };
 
 // app/styles/app.css
-var app_default = "/build/_assets/app-IV6JPI4Z.css";
+var app_default = "/build/_assets/app-CYOZEHLB.css";
 
 // route:/Users/jamesmckenzie/repos/jamesmckenzie.io/app/root.tsx
 function links() {
@@ -213,6 +213,7 @@ var DarkModeToggle = () => {
     method: "post",
     action: "/action/setTheme"
   }, /* @__PURE__ */ React.createElement("button", {
+    "aria-label": "Toggle dark mode",
     onClick: () => {
       const html = document.getElementsByTagName("html")[0];
       if (html.classList.contains("dark")) {
@@ -311,7 +312,7 @@ var HomePage = () => {
 var routes_default = HomePage;
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { "version": "ced46b78", "entry": { "module": "/build/entry.client-RTTJKFQJ.js", "imports": ["/build/_shared/chunk-OWSZHUBW.js", "/build/_shared/chunk-JSO5GUHK.js"] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "module": "/build/root-BMQH2APM.js", "imports": void 0, "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/action/setTheme": { "id": "routes/action/setTheme", "parentId": "root", "path": "action/setTheme", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/action/setTheme-YUOOPRQ4.js", "imports": void 0, "hasAction": true, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/index": { "id": "routes/index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "module": "/build/routes/index-M7JKMHYK.js", "imports": void 0, "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false } }, "url": "/build/manifest-CED46B78.js" };
+var assets_manifest_default = { "version": "6cb15396", "entry": { "module": "/build/entry.client-4MZGRLP3.js", "imports": ["/build/_shared/chunk-M74FEUZ4.js", "/build/_shared/chunk-JSO5GUHK.js"] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "module": "/build/root-IEINPJPH.js", "imports": void 0, "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/action/setTheme": { "id": "routes/action/setTheme", "parentId": "root", "path": "action/setTheme", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/action/setTheme-YUOOPRQ4.js", "imports": void 0, "hasAction": true, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/index": { "id": "routes/index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "module": "/build/routes/index-YPV5PNIU.js", "imports": void 0, "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false } }, "url": "/build/manifest-6CB15396.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var entry = { module: entry_server_exports };

@@ -6,6 +6,7 @@ const DarkModeToggle = () => {
   return (
     <fetcher.Form method="post" action="/action/setTheme">
       <button
+        aria-label="Toggle dark mode"
         onClick={() => {
           const html = document.getElementsByTagName("html")[0];
 
