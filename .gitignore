@@ -62,3 +62,6 @@ typings/
 public
 yarn-error.log
 .DS_Store
+
+# tailwind
+app/styles/*.css
