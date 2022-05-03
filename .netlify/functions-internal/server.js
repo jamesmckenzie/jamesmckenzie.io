@@ -69,13 +69,25 @@ function handleRequest(request, responseStatusCode, responseHeaders, remixContex
 var root_exports = {};
 __export(root_exports, {
   default: () => App,
+  headers: () => headers,
   links: () => links,
+  loader: () => loader,
   meta: () => meta
 });
 var import_react2 = require("@remix-run/react");
 
+// app/cookies.ts
+var import_node = require("@remix-run/node");
+var colorSchemeCookie = (0, import_node.createCookie)("color-scheme");
+var getColorSchemeToken = async (request) => await colorSchemeCookie.parse(request.headers.get("Cookie"));
+var getColorScheme = async (request) => {
+  const userSelectedColorScheme = await getColorSchemeToken(request);
+  const systemPreferredColorScheme = request.headers.get("Sec-CH-Prefers-Color-Scheme");
+  return userSelectedColorScheme ?? systemPreferredColorScheme ?? "light";
+};
+
 // app/styles/app.css
-var app_default = "/build/_assets/app-2LOMTTA4.css";
+var app_default = "/build/_assets/app-5AIZVAUX.css";
 
 // route:/Users/jamesmckenzie/repos/jamesmckenzie.io/app/root.tsx
 function links() {
@@ -99,18 +111,27 @@ var meta = () => ({
   viewport: "width=device-width,initial-scale=1",
   description: "A multi-disciplined Software Engineer based in London. currently building the future of banking at Checkout.com."
 });
+var headers = () => ({
+  "Accept-CH": "Sec-CH-Prefers-Color-Scheme"
+});
+var loader = async ({ request }) => ({
+  colorScheme: await getColorScheme(request)
+});
 function App() {
+  const { colorScheme } = (0, import_react2.useLoaderData)();
   return /* @__PURE__ */ React.createElement("html", {
-    lang: "en"
+    lang: "en",
+    className: colorScheme
   }, /* @__PURE__ */ React.createElement("head", null, /* @__PURE__ */ React.createElement(import_react2.Meta, null), /* @__PURE__ */ React.createElement(import_react2.Links, null)), /* @__PURE__ */ React.createElement("body", null, /* @__PURE__ */ React.createElement(import_react2.Outlet, null), /* @__PURE__ */ React.createElement(import_react2.ScrollRestoration, null), /* @__PURE__ */ React.createElement(import_react2.Scripts, null), /* @__PURE__ */ React.createElement(import_react2.LiveReload, null)));
 }
 
 // route:/Users/jamesmckenzie/repos/jamesmckenzie.io/app/routes/index.tsx
 var routes_exports = {};
 __export(routes_exports, {
+  action: () => action,
   default: () => routes_default
 });
-var import_react3 = __toESM(require("react"));
+var import_react4 = __toESM(require("react"));
 
 // app/components/Hero/Hero.tsx
 var Hero = () => /* @__PURE__ */ React.createElement("section", {
@@ -134,34 +155,34 @@ var Hero = () => /* @__PURE__ */ React.createElement("section", {
 }, /* @__PURE__ */ React.createElement("span", {
   className: "text-zinc-700 text-base dark:text-white"
 }, "I'm a multi-disciplined Software Engineer, currently building the future of banking at", " ", /* @__PURE__ */ React.createElement("a", {
-  className: "text-pink-700 dark:text-pink-500 font-bold hover:underline hover:saturate-150 focus:saturate-150 transition-all",
+  className: "text-pink-700 dark:text-pink-500 font-bold hover:underline hover:saturate-150 focus:saturate-150 focus:outline-none focus-visible:ring-4  rounded-sm transition-all",
   href: "https://www.checkout.com/"
 }, "Checkout.com"), ". Specialising in modern ", /* @__PURE__ */ React.createElement("strong", null, "front end architecture"), " and", " ", /* @__PURE__ */ React.createElement("strong", null, "tooling"), ", I primarily work in", " ", /* @__PURE__ */ React.createElement("strong", null, "Typescript"), ", as well as staying up to date with modern application and systems programming in languages such as", " ", /* @__PURE__ */ React.createElement("strong", null, "Rust"), " and ", /* @__PURE__ */ React.createElement("strong", null, "Golang"), ".")), /* @__PURE__ */ React.createElement("div", {
   className: "ml-1 lg:ml-2"
 }, /* @__PURE__ */ React.createElement("a", {
   href: "mailto:hello@jamesmckenzie.io",
-  className: "font-inconsolata shadow-lg shadow-pink-400/50 border-2 border-purple-700 rounded px-4 py-2 text-lg uppercase text-purple-700 hover:text-white focus:text-white hover:bg-purple-700 focus:bg-purple-700 transition-colors hover:saturate-150 inline-block cursor-pointer outline-offset-4 dark:border-white dark:hover:border-pink-500 dark:focus:border-pink-500 dark:text-white dark:shadow-pink-700/50 dark:hover:bg-pink-500 dark:focus:bg-pink-500"
+  className: "font-inconsolata shadow-lg shadow-pink-400/50 border-2 border-purple-700 rounded px-4 py-2 text-lg uppercase text-purple-700 hover:text-white focus:text-white hover:bg-purple-700 focus:bg-purple-700 transition-colors hover:saturate-150 inline-block cursor-pointer outline-offset-4 dark:border-white dark:hover:border-pink-500 dark:focus:border-pink-500 dark:text-white dark:shadow-pink-700/50 dark:hover:bg-pink-500 dark:focus:bg-pink-500 focus:outline-none focus-visible:ring-4 "
 }, "Get in touch"))));
 var Hero_default = Hero;
 
 // app/components/SocialBar/SocialBar.tsx
 var import_fi = require("react-icons/fi");
 var SocialBar = () => /* @__PURE__ */ React.createElement("div", {
-  className: "text-pink-700 dark:text-white flex space-x-8 items-center ml-2 lg:ml-4 absolute mt-20"
+  className: "flex space-x-8 text-pink-700 dark:text-white "
 }, /* @__PURE__ */ React.createElement("a", {
-  className: "hover:saturate-150 focus:saturate-150 dark:hover:text-pink-500 dark:focus:text-pink-500 transition-all",
+  className: "hover:saturate-150 focus:saturate-150 dark:hover:text-pink-500 dark:focus:text-pink-500 transition-all focus:outline-none focus-visible:ring-4  rounded-lg p-0.5",
   href: "https://github.com/jamesmckenzie",
   "aria-label": "View James McKenzie's Github page"
 }, /* @__PURE__ */ React.createElement(import_fi.FiGithub, {
   size: "2.5em"
 })), /* @__PURE__ */ React.createElement("a", {
-  className: "hover:saturate-150 focus:saturate-150 dark:hover:text-pink-500 dark:focus:text-pink-500 transition",
+  className: "hover:saturate-150 focus:saturate-150 dark:hover:text-pink-500 dark:focus:text-pink-500 transition focus:outline-none focus-visible:ring-4  rounded-lg p-0.5",
   href: "https://twitter.com/jmc_kenzie",
   "aria-label": "View James McKenzie's Twitter profile"
 }, /* @__PURE__ */ React.createElement(import_fi.FiTwitter, {
   size: "2.5em"
 })), /* @__PURE__ */ React.createElement("a", {
-  className: "hover:saturate-150 focus:saturate-150 dark:hover:text-pink-500 dark:focus:text-pink-500 transition-all",
+  className: "hover:saturate-150 focus:saturate-150 dark:hover:text-pink-500 dark:focus:text-pink-500 transition-all focus:outline-none focus-visible:ring-4  rounded-lg p-0.5",
   href: "https://www.linkedin.com/in/james-mckenzie-10975314/",
   "aria-label": "View James McKenzie's LinkedIn profile"
 }, /* @__PURE__ */ React.createElement(import_fi.FiLinkedin, {
@@ -170,19 +191,122 @@ var SocialBar = () => /* @__PURE__ */ React.createElement("div", {
 var SocialBar_default = SocialBar;
 
 // route:/Users/jamesmckenzie/repos/jamesmckenzie.io/app/routes/index.tsx
-var HomePage = ({ data }) => {
-  return /* @__PURE__ */ import_react3.default.createElement("div", {
-    className: "h-screen bg-gradient-to-r from-purple-100 via-purple-200 to-blue-200 dark:from-purple-900 dark:via-purple-800 dark:to-blue-900"
-  }, /* @__PURE__ */ import_react3.default.createElement("div", {
-    className: "animate-fade max-w-7xl m-auto px-8 lg:px-32"
-  }, /* @__PURE__ */ import_react3.default.createElement("div", {
-    className: "flex justify-between items-center"
-  }, /* @__PURE__ */ import_react3.default.createElement(SocialBar_default, null)), /* @__PURE__ */ import_react3.default.createElement(Hero_default, null)));
+var import_node2 = require("@remix-run/node");
+
+// app/components/DarkModeToggle/index.tsx
+var import_react3 = require("@remix-run/react");
+var DarkModeToggle = () => {
+  return /* @__PURE__ */ React.createElement(import_react3.Form, {
+    method: "post"
+  }, /* @__PURE__ */ React.createElement("button", {
+    onClick: () => {
+      const html = document.getElementsByTagName("html")[0];
+      if (html.classList.contains("dark")) {
+        html.classList.remove("dark");
+      } else {
+        html.classList.add("dark");
+      }
+    },
+    id: "theme-toggle",
+    type: "submit",
+    className: "text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus-visible:ring-4  rounded-lg text-sm p-2.5 transition-colors"
+  }, /* @__PURE__ */ React.createElement("svg", {
+    className: "dark:hidden",
+    width: "24",
+    height: "24",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    "stroke-width": "2",
+    "stroke-linecap": "round",
+    "stroke-linejoin": "round"
+  }, /* @__PURE__ */ React.createElement("circle", {
+    cx: "12",
+    cy: "12",
+    r: "5"
+  }), /* @__PURE__ */ React.createElement("line", {
+    x1: "12",
+    y1: "1",
+    x2: "12",
+    y2: "3"
+  }), /* @__PURE__ */ React.createElement("line", {
+    x1: "12",
+    y1: "21",
+    x2: "12",
+    y2: "23"
+  }), /* @__PURE__ */ React.createElement("line", {
+    x1: "4.22",
+    y1: "4.22",
+    x2: "5.64",
+    y2: "5.64"
+  }), /* @__PURE__ */ React.createElement("line", {
+    x1: "18.36",
+    y1: "18.36",
+    x2: "19.78",
+    y2: "19.78"
+  }), /* @__PURE__ */ React.createElement("line", {
+    x1: "1",
+    y1: "12",
+    x2: "3",
+    y2: "12"
+  }), /* @__PURE__ */ React.createElement("line", {
+    x1: "21",
+    y1: "12",
+    x2: "23",
+    y2: "12"
+  }), /* @__PURE__ */ React.createElement("line", {
+    x1: "4.22",
+    y1: "19.78",
+    x2: "5.64",
+    y2: "18.36"
+  }), /* @__PURE__ */ React.createElement("line", {
+    x1: "18.36",
+    y1: "5.64",
+    x2: "19.78",
+    y2: "4.22"
+  })), /* @__PURE__ */ React.createElement("svg", {
+    className: "hidden dark:block",
+    width: "24",
+    height: "24",
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    "stroke-width": "2",
+    "stroke-linecap": "round",
+    "stroke-linejoin": "round"
+  }, /* @__PURE__ */ React.createElement("path", {
+    d: "M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+  }))));
+};
+var DarkModeToggle_default = DarkModeToggle;
+
+// route:/Users/jamesmckenzie/repos/jamesmckenzie.io/app/routes/index.tsx
+var action = async ({ request }) => {
+  const currentColorScheme = await getColorScheme(request);
+  const newColorScheme = currentColorScheme === "light" ? "dark" : "light";
+  return (0, import_node2.redirect)(request.url, {
+    headers: {
+      "Set-Cookie": await colorSchemeCookie.serialize(newColorScheme)
+    }
+  });
+};
+var HomePage = () => {
+  return /* @__PURE__ */ import_react4.default.createElement("div", {
+    className: "bg-gradient-to-r from-purple-100 via-purple-200 to-blue-200 dark:from-purple-900 dark:via-purple-800 dark:to-blue-900"
+  }, /* @__PURE__ */ import_react4.default.createElement("div", {
+    className: "animate-fade"
+  }, /* @__PURE__ */ import_react4.default.createElement("div", {
+    className: "absolute w-full justify-between flex px-8 lg:px-32 pt-4 h-20"
+  }, /* @__PURE__ */ import_react4.default.createElement(SocialBar_default, null), /* @__PURE__ */ import_react4.default.createElement("div", {
+    className: ""
+  }, /* @__PURE__ */ import_react4.default.createElement(DarkModeToggle_default, null))), /* @__PURE__ */ import_react4.default.createElement("div", {
+    className: "max-w-7xl m-auto px-8 lg:px-32"
+  }, /* @__PURE__ */ import_react4.default.createElement(Hero_default, null))));
 };
 var routes_default = HomePage;
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { "version": "3e0666f2", "entry": { "module": "/build/entry.client-2LTKF3X7.js", "imports": ["/build/_shared/chunk-EPO7GG74.js", "/build/_shared/chunk-FBE6NMDB.js"] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "module": "/build/root-WWVXSBJQ.js", "imports": void 0, "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/index": { "id": "routes/index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "module": "/build/routes/index-NOOWTAA3.js", "imports": void 0, "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false } }, "url": "/build/manifest-3E0666F2.js" };
+var assets_manifest_default = { "version": "f4e18e71", "entry": { "module": "/build/entry.client-WXLXOLJC.js", "imports": ["/build/_shared/chunk-XKP6S3VK.js"] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "module": "/build/root-5PISIBAD.js", "imports": void 0, "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/index": { "id": "routes/index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "module": "/build/routes/index-2OTJRQBD.js", "imports": void 0, "hasAction": true, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false } }, "url": "/build/manifest-F4E18E71.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var entry = { module: entry_server_exports };

@@ -24,7 +24,7 @@ const Hero = () => (
           I'm a multi-disciplined Software Engineer, currently building the
           future of banking at{" "}
           <a
-            className="text-pink-700 dark:text-pink-500 font-bold hover:underline hover:saturate-150 focus:saturate-150 transition-all"
+            className="text-pink-700 dark:text-pink-500 font-bold hover:underline hover:saturate-150 focus:saturate-150 focus:outline-none focus-visible:ring-4  rounded-sm transition-all"
             href="https://www.checkout.com/"
           >
             Checkout.com
@@ -40,7 +40,7 @@ const Hero = () => (
       <div className="ml-1 lg:ml-2">
         <a
           href="mailto:hello@jamesmckenzie.io"
-          className="font-inconsolata shadow-lg shadow-pink-400/50 border-2 border-purple-700 rounded px-4 py-2 text-lg uppercase text-purple-700 hover:text-white focus:text-white hover:bg-purple-700 focus:bg-purple-700 transition-colors hover:saturate-150 inline-block cursor-pointer outline-offset-4 dark:border-white dark:hover:border-pink-500 dark:focus:border-pink-500 dark:text-white dark:shadow-pink-700/50 dark:hover:bg-pink-500 dark:focus:bg-pink-500"
+          className="font-inconsolata shadow-lg shadow-pink-400/50 border-2 border-purple-700 rounded px-4 py-2 text-lg uppercase text-purple-700 hover:text-white focus:text-white hover:bg-purple-700 focus:bg-purple-700 transition-colors hover:saturate-150 inline-block cursor-pointer outline-offset-4 dark:border-white dark:hover:border-pink-500 dark:focus:border-pink-500 dark:text-white dark:shadow-pink-700/50 dark:hover:bg-pink-500 dark:focus:bg-pink-500 focus:outline-none focus-visible:ring-4 "
         >
           Get in touch
         </a>

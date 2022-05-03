@@ -1,4 +1,8 @@
-import type { MetaFunction } from "@remix-run/node";
+import type {
+  HeadersFunction,
+  LoaderFunction,
+  MetaFunction,
+} from "@remix-run/node";
 import {
   Links,
   LiveReload,
@@ -6,7 +10,9 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLoaderData,
 } from "@remix-run/react";
+import { getColorScheme } from "./cookies";
 import styles from "./styles/app.css";
 
 /*
@@ -40,9 +46,19 @@ export const meta: MetaFunction = () => ({
     "A multi-disciplined Software Engineer based in London. currently building the future of banking at Checkout.com.",
 });
 
+export const headers: HeadersFunction = () => ({
+  "Accept-CH": "Sec-CH-Prefers-Color-Scheme",
+});
+
+export const loader: LoaderFunction = async ({ request }) => ({
+  colorScheme: await getColorScheme(request),
+});
+
 export default function App() {
+  const { colorScheme } = useLoaderData();
+
   return (
-    <html lang="en">
+    <html lang="en" className={colorScheme}>
       <head>
         <Meta />
         <Links />
