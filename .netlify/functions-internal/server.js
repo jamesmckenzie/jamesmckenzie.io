@@ -231,9 +231,9 @@ var DarkModeToggle = () => {
     viewBox: "0 0 24 24",
     fill: "none",
     stroke: "currentColor",
-    "stroke-width": "2",
-    "stroke-linecap": "round",
-    "stroke-linejoin": "round"
+    strokeWidth: "2",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
   }, /* @__PURE__ */ React.createElement("circle", {
     cx: "12",
     cy: "12",
@@ -285,9 +285,9 @@ var DarkModeToggle = () => {
     viewBox: "0 0 24 24",
     fill: "none",
     stroke: "currentColor",
-    "stroke-width": "2",
-    "stroke-linecap": "round",
-    "stroke-linejoin": "round"
+    strokeWidth: "2",
+    strokeLinecap: "round",
+    strokeLinejoin: "round"
   }, /* @__PURE__ */ React.createElement("path", {
     d: "M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
   }))));
@@ -311,7 +311,7 @@ var HomePage = () => {
 var routes_default = HomePage;
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { "version": "158248c7", "entry": { "module": "/build/entry.client-RTTJKFQJ.js", "imports": ["/build/_shared/chunk-OWSZHUBW.js", "/build/_shared/chunk-JSO5GUHK.js"] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "module": "/build/root-BMQH2APM.js", "imports": void 0, "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/action/setTheme": { "id": "routes/action/setTheme", "parentId": "root", "path": "action/setTheme", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/action/setTheme-YUOOPRQ4.js", "imports": void 0, "hasAction": true, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/index": { "id": "routes/index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "module": "/build/routes/index-WXZHP4RY.js", "imports": void 0, "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false } }, "url": "/build/manifest-158248C7.js" };
+var assets_manifest_default = { "version": "ced46b78", "entry": { "module": "/build/entry.client-RTTJKFQJ.js", "imports": ["/build/_shared/chunk-OWSZHUBW.js", "/build/_shared/chunk-JSO5GUHK.js"] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "module": "/build/root-BMQH2APM.js", "imports": void 0, "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/action/setTheme": { "id": "routes/action/setTheme", "parentId": "root", "path": "action/setTheme", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/action/setTheme-YUOOPRQ4.js", "imports": void 0, "hasAction": true, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/index": { "id": "routes/index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "module": "/build/routes/index-M7JKMHYK.js", "imports": void 0, "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false } }, "url": "/build/manifest-CED46B78.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var entry = { module: entry_server_exports };
