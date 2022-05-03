@@ -1,10 +1,39 @@
 var __create = Object.create;
 var __defProp = Object.defineProperty;
+var __defProps = Object.defineProperties;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropDescs = Object.getOwnPropertyDescriptors;
 var __getOwnPropNames = Object.getOwnPropertyNames;
+var __getOwnPropSymbols = Object.getOwnPropertySymbols;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __propIsEnum = Object.prototype.propertyIsEnumerable;
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __spreadValues = (a, b) => {
+  for (var prop in b || (b = {}))
+    if (__hasOwnProp.call(b, prop))
+      __defNormalProp(a, prop, b[prop]);
+  if (__getOwnPropSymbols)
+    for (var prop of __getOwnPropSymbols(b)) {
+      if (__propIsEnum.call(b, prop))
+        __defNormalProp(a, prop, b[prop]);
+    }
+  return a;
+};
+var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
 var __markAsModule = (target) => __defProp(target, "__esModule", { value: true });
+var __objRest = (source, exclude) => {
+  var target = {};
+  for (var prop in source)
+    if (__hasOwnProp.call(source, prop) && exclude.indexOf(prop) < 0)
+      target[prop] = source[prop];
+  if (source != null && __getOwnPropSymbols)
+    for (var prop of __getOwnPropSymbols(source)) {
+      if (exclude.indexOf(prop) < 0 && __propIsEnum.call(source, prop))
+        target[prop] = source[prop];
+    }
+  return target;
+};
 var __export = (target, all) => {
   for (var name in all)
     __defProp(target, name, { get: all[name], enumerable: true });
@@ -87,7 +116,7 @@ var getColorScheme = async (request) => {
 };
 
 // app/styles/app.css
-var app_default = "/build/_assets/app-7TNCFUKP.css";
+var app_default = "/build/_assets/app-ULKONFJ4.css";
 
 // route:/Users/jamesmckenzie/repos/jamesmckenzie.io/app/root.tsx
 function links() {
@@ -275,50 +304,85 @@ var SocialBar = () => /* @__PURE__ */ React.createElement("div", {
 var SocialBar_default = SocialBar;
 
 // app/components/Header/Header.tsx
+var HeaderLink = (_a) => {
+  var _b = _a, { children } = _b, props = __objRest(_b, ["children"]);
+  return /* @__PURE__ */ React.createElement(import_react4.NavLink, __spreadProps(__spreadValues({}, props), {
+    className: ({ isActive }) => `font-inconsolata focus:outline-none focus-visible:ring-4 px-4 py-3 dark:hover:bg-gray-800 hover:bg-gray-100 hover:shadow-inner rounded transition-all ${isActive && "underline underline-offset-2 decoration-pink-700 decoration-4"}`
+  }), /* @__PURE__ */ React.createElement("span", {
+    className: " uppercase text-purple-900 dark:text-white text-lg"
+  }, children));
+};
 var Header = () => {
-  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement(SocialBar_default, null), /* @__PURE__ */ React.createElement("div", {
-    className: "flex space-x-4 items-center"
+  return /* @__PURE__ */ React.createElement("div", {
+    className: "flex justify-between space-x-8 items-center w-full"
   }, /* @__PURE__ */ React.createElement("div", {
-    className: "flex space-x-2"
-  }, /* @__PURE__ */ React.createElement(import_react4.NavLink, {
-    to: "/",
-    className: ({ isActive }) => `px-4 transition-all focus:outline-none focus-visible:ring-4 rounded h-[44px] flex items-center hover:bg-gray-200 hover:shadow-inner dark:hover:bg-gray-800  ${isActive && "underline underline-offset-4 decoration-pink-700 decoration-4"}`
-  }, /* @__PURE__ */ React.createElement("span", {
-    className: "text-lg font-bold text-purple-900 dark:text-white"
-  }, "Home")), /* @__PURE__ */ React.createElement(import_react4.NavLink, {
-    to: "/contact",
-    className: ({ isActive }) => `px-4 transition-all focus:outline-none focus-visible:ring-4 rounded h-[44px] flex items-center hover:bg-gray-200 hover:shadow-inner dark:hover:bg-gray-800 ${isActive && "underline underline-offset-4 decoration-pink-700 decoration-4"}`
-  }, /* @__PURE__ */ React.createElement("span", {
-    className: "text-lg font-bold text-purple-900 dark:text-white"
-  }, "Contact"))), /* @__PURE__ */ React.createElement(DarkModeToggle_default, null)));
+    className: "space-x-2"
+  }, /* @__PURE__ */ React.createElement(HeaderLink, {
+    to: "/"
+  }, "Home"), /* @__PURE__ */ React.createElement(HeaderLink, {
+    to: "/contact"
+  }, "Contact")), /* @__PURE__ */ React.createElement("div", {
+    className: "flex space-x-8"
+  }, /* @__PURE__ */ React.createElement(SocialBar_default, null), /* @__PURE__ */ React.createElement(DarkModeToggle_default, null)));
 };
 var Header_default = Header;
 
 // app/components/Layout/Layout.tsx
 var Layout = ({ children }) => /* @__PURE__ */ import_react5.default.createElement(Background_default, null, /* @__PURE__ */ import_react5.default.createElement("div", {
-  className: " relative px-8 lg:px-32"
+  className: "relative px-8 lg:px-32"
 }, /* @__PURE__ */ import_react5.default.createElement("section", {
   className: "flex w-full justify-between h-20 py-4"
 }, /* @__PURE__ */ import_react5.default.createElement(Header_default, null)), children));
 var Layout_default = Layout;
 
 // route:/Users/jamesmckenzie/repos/jamesmckenzie.io/app/routes/contact.tsx
+var Input = ({ id, labelValue, type }) => {
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("label", {
+    htmlFor: id,
+    className: "block"
+  }, labelValue), /* @__PURE__ */ React.createElement("input", {
+    type,
+    className: "border-gray-200 border shadow-sm rounded w-full"
+  }));
+};
 var Contact = () => {
   return /* @__PURE__ */ React.createElement(Layout_default, null, /* @__PURE__ */ React.createElement("section", {
-    className: "-mt-20 h-screen flex items-center justify-center"
+    className: "-mt-20 h-screen flex items-center justify-center "
+  }, /* @__PURE__ */ React.createElement("form", {
+    name: "contact",
+    "data-netlify": "true"
   }, /* @__PURE__ */ React.createElement("div", {
     className: "shadow-md rounded p-16 bg-white space-y-4"
   }, /* @__PURE__ */ React.createElement("div", {
-    className: "space-x-4"
-  }, /* @__PURE__ */ React.createElement("input", {
-    className: "border-2 border-gray-300 rounded px-4 py-2"
-  }), /* @__PURE__ */ React.createElement("input", {
-    className: "border-2 border-gray-300 rounded px-4 py-2"
-  })), /* @__PURE__ */ React.createElement("input", {
-    className: "border-2 border-gray-300 rounded px-4 py-2 w-full"
-  }), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("textarea", {
-    className: "border-2 border-gray-300 rounded w-full"
-  })))));
+    className: "space-y-4 md:space-x-4"
+  }, /* @__PURE__ */ React.createElement("div", {
+    className: "inline-block w-full md:w-auto"
+  }, /* @__PURE__ */ React.createElement(Input, {
+    type: "text",
+    id: "firstName",
+    labelValue: "First name"
+  })), /* @__PURE__ */ React.createElement("div", {
+    className: "inline-block w-full md:w-auto"
+  }, /* @__PURE__ */ React.createElement(Input, {
+    type: "text",
+    id: "lastName",
+    labelValue: "Last name"
+  }))), /* @__PURE__ */ React.createElement("div", {
+    className: ""
+  }, /* @__PURE__ */ React.createElement(Input, {
+    type: "email",
+    id: "email",
+    labelValue: "Email"
+  })), /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("label", {
+    htmlFor: "message",
+    className: "block"
+  }, "Message"), /* @__PURE__ */ React.createElement("textarea", {
+    id: "message",
+    className: "border-gray-200 border shadow-sm rounded w-full resize-none h-32"
+  })), /* @__PURE__ */ React.createElement("button", {
+    type: "submit",
+    name: "Submit"
+  }, "Send")))));
 };
 var contact_default = Contact;
 
@@ -369,7 +433,7 @@ var HomePage = () => {
 var routes_default = HomePage;
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { "version": "fbfdd1c9", "entry": { "module": "/build/entry.client-BL6ZOP3O.js", "imports": ["/build/_shared/chunk-FKR6CAAF.js", "/build/_shared/chunk-JSO5GUHK.js"] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "module": "/build/root-BHQPCSWQ.js", "imports": void 0, "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/action/setTheme": { "id": "routes/action/setTheme", "parentId": "root", "path": "action/setTheme", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/action/setTheme-YUOOPRQ4.js", "imports": void 0, "hasAction": true, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/contact-SKK24M44.js", "imports": ["/build/_shared/chunk-HNO2RALL.js"], "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/index": { "id": "routes/index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "module": "/build/routes/index-K5GRVQO4.js", "imports": ["/build/_shared/chunk-HNO2RALL.js"], "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false } }, "url": "/build/manifest-FBFDD1C9.js" };
+var assets_manifest_default = { "version": "faeced56", "entry": { "module": "/build/entry.client-BL6ZOP3O.js", "imports": ["/build/_shared/chunk-FKR6CAAF.js", "/build/_shared/chunk-JSO5GUHK.js"] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "module": "/build/root-4CZZWXMR.js", "imports": void 0, "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/action/setTheme": { "id": "routes/action/setTheme", "parentId": "root", "path": "action/setTheme", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/action/setTheme-YUOOPRQ4.js", "imports": void 0, "hasAction": true, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/contact-O2BBZL7N.js", "imports": ["/build/_shared/chunk-TJ3FBU6I.js"], "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/index": { "id": "routes/index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "module": "/build/routes/index-RLDVJXFC.js", "imports": ["/build/_shared/chunk-TJ3FBU6I.js"], "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false } }, "url": "/build/manifest-FAECED56.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var entry = { module: entry_server_exports };
