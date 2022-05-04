@@ -177,7 +177,6 @@ __export(contact_exports, {
   default: () => contact_default
 });
 var import_node4 = require("@remix-run/node");
-var import_react6 = require("@remix-run/react");
 
 // app/components/Layout/Layout.tsx
 var import_react5 = __toESM(require("react"));
@@ -378,7 +377,7 @@ var action2 = async ({ request, params }) => {
 var Contact = () => {
   return /* @__PURE__ */ React.createElement(Layout_default, null, /* @__PURE__ */ React.createElement("section", {
     className: "-mt-20 h-screen flex flex-col items-stretch justify-center"
-  }, /* @__PURE__ */ React.createElement(import_react6.Form, {
+  }, /* @__PURE__ */ React.createElement("form", {
     method: "post",
     name: "contact",
     "data-netlify": "true",
@@ -420,10 +419,10 @@ __export(routes_exports, {
   default: () => routes_default,
   loader: () => loader2
 });
-var import_react8 = __toESM(require("react"));
+var import_react7 = __toESM(require("react"));
 
 // app/components/Hero/Hero.tsx
-var import_react7 = require("@remix-run/react");
+var import_react6 = require("@remix-run/react");
 var Hero = () => /* @__PURE__ */ React.createElement("div", {
   className: "space-y-8 animate-fade"
 }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", {
@@ -447,7 +446,7 @@ var Hero = () => /* @__PURE__ */ React.createElement("div", {
   href: "https://www.checkout.com/"
 }, "Checkout.com"), ". Specialising in modern ", /* @__PURE__ */ React.createElement("strong", null, "front end architecture"), " and", " ", /* @__PURE__ */ React.createElement("strong", null, "tooling"), ", I primarily work in", " ", /* @__PURE__ */ React.createElement("strong", null, "Typescript"), ", as well as staying up to date with modern application and systems programming in languages such as", " ", /* @__PURE__ */ React.createElement("strong", null, "Rust"), " and ", /* @__PURE__ */ React.createElement("strong", null, "Golang"), ".")), /* @__PURE__ */ React.createElement("div", {
   className: "ml-1 lg:ml-2"
-}, /* @__PURE__ */ React.createElement(import_react7.Link, {
+}, /* @__PURE__ */ React.createElement(import_react6.Link, {
   to: "/contact",
   className: "font-inconsolata shadow-lg shadow-pink-400/50 border-2 border-purple-700 rounded px-4 py-2 text-lg uppercase text-purple-700 hover:text-white focus:text-white hover:bg-purple-700 focus:bg-purple-700 transition-colors hover:saturate-150 inline-block cursor-pointer outline-offset-4 dark:border-white dark:hover:border-pink-500 dark:focus:border-pink-500 dark:text-white dark:shadow-pink-700/50 dark:hover:bg-pink-500 dark:focus:bg-pink-500 focus:outline-none focus-visible:ring-4 "
 }, "Get in touch")));
@@ -455,7 +454,7 @@ var Hero_default = Hero;
 
 // route:/Users/jamesmckenzie/repos/jamesmckenzie.io/app/routes/index.tsx
 var import_node5 = require("@remix-run/node");
-var import_react9 = require("@remix-run/react");
+var import_react8 = require("@remix-run/react");
 var loader2 = async ({ request }) => {
   const session = await getSession(request.headers.get("Cookie"));
   const message = session.get("globalMessage") || null;
@@ -466,9 +465,9 @@ var loader2 = async ({ request }) => {
   });
 };
 var Toast = ({ message }) => {
-  const [show, setShow] = (0, import_react8.useState)(!!message);
-  const ref = (0, import_react8.useRef)(message);
-  (0, import_react8.useEffect)(() => {
+  const [show, setShow] = (0, import_react7.useState)(!!message);
+  const ref = (0, import_react7.useRef)(message);
+  (0, import_react7.useEffect)(() => {
     if (show) {
       let timer1 = setTimeout(() => setShow(false), 3 * 1e3);
       return () => {
@@ -476,25 +475,25 @@ var Toast = ({ message }) => {
       };
     }
   }, []);
-  return show ? /* @__PURE__ */ import_react8.default.createElement("div", {
+  return show ? /* @__PURE__ */ import_react7.default.createElement("div", {
     className: "fixed bottom-8 right-2 -translate-x-1/2 -translate-y-1/2"
-  }, /* @__PURE__ */ import_react8.default.createElement("output", {
+  }, /* @__PURE__ */ import_react7.default.createElement("output", {
     role: "status",
     className: "text-green-800 dark:text-white bg-green-300 bg-opacity-30 border border-green-500 p-4  rounded shadow-md transition-transform "
   }, ref.current)) : null;
 };
 var HomePage = () => {
-  const { message } = (0, import_react9.useLoaderData)();
-  return /* @__PURE__ */ import_react8.default.createElement(import_react8.default.Fragment, null, /* @__PURE__ */ import_react8.default.createElement(Toast, {
+  const { message } = (0, import_react8.useLoaderData)();
+  return /* @__PURE__ */ import_react7.default.createElement(import_react7.default.Fragment, null, /* @__PURE__ */ import_react7.default.createElement(Toast, {
     message
-  }), /* @__PURE__ */ import_react8.default.createElement(Layout_default, null, /* @__PURE__ */ import_react8.default.createElement("section", {
+  }), /* @__PURE__ */ import_react7.default.createElement(Layout_default, null, /* @__PURE__ */ import_react7.default.createElement("section", {
     className: "-mt-20 h-screen flex items-center"
-  }, /* @__PURE__ */ import_react8.default.createElement(Hero_default, null))));
+  }, /* @__PURE__ */ import_react7.default.createElement(Hero_default, null))));
 };
 var routes_default = HomePage;
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { "version": "82038813", "entry": { "module": "/build/entry.client-MMV5UJT5.js", "imports": ["/build/_shared/chunk-JLVNZ6FA.js", "/build/_shared/chunk-JSO5GUHK.js"] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "module": "/build/root-HWFT5NKY.js", "imports": void 0, "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/action/setTheme": { "id": "routes/action/setTheme", "parentId": "root", "path": "action/setTheme", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/action/setTheme-YUOOPRQ4.js", "imports": void 0, "hasAction": true, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/contact-3ALK3BKQ.js", "imports": ["/build/_shared/chunk-5PKB736U.js"], "hasAction": true, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/index": { "id": "routes/index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "module": "/build/routes/index-TQC4KSYQ.js", "imports": ["/build/_shared/chunk-5PKB736U.js"], "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false } }, "url": "/build/manifest-82038813.js" };
+var assets_manifest_default = { "version": "b0ffb4b8", "entry": { "module": "/build/entry.client-BL6ZOP3O.js", "imports": ["/build/_shared/chunk-FKR6CAAF.js", "/build/_shared/chunk-JSO5GUHK.js"] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "module": "/build/root-TCLBB4PS.js", "imports": void 0, "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/action/setTheme": { "id": "routes/action/setTheme", "parentId": "root", "path": "action/setTheme", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/action/setTheme-YUOOPRQ4.js", "imports": void 0, "hasAction": true, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/contact-TYXF7I7Y.js", "imports": ["/build/_shared/chunk-TJ3FBU6I.js"], "hasAction": true, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/index": { "id": "routes/index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "module": "/build/routes/index-L6ZOQDLE.js", "imports": ["/build/_shared/chunk-TJ3FBU6I.js"], "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false } }, "url": "/build/manifest-B0FFB4B8.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var entry = { module: entry_server_exports };

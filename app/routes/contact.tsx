@@ -34,7 +34,7 @@ const Contact = () => {
   return (
     <Layout>
       <section className="-mt-20 h-screen flex flex-col items-stretch justify-center">
-        <Form
+        <form
           method="post"
           name="contact"
           data-netlify="true"
@@ -67,7 +67,7 @@ const Contact = () => {
               Send!
             </button>
           </div>
-        </Form>
+        </form>
       </section>
     </Layout>
   );
