@@ -40,7 +40,7 @@ const Contact = () => {
           data-netlify="true"
           action="/contact"
         >
-          <div className="shadow-md rounded py-8 px-12 bg-white space-y-4 mx-64 text-zinc-700 text-sm">
+          <div className="shadow-md rounded py-8 px-12 bg-white space-y-4 md:mx-16 lg:mx-32 xl:mx-64 text-zinc-700 text-sm">
             <div className="space-y-4 md:space-x-4">
               <div className="">
                 <Input type="text" id="name" labelValue="Name" />
