@@ -339,7 +339,6 @@ var Layout_default = Layout;
 
 // app/sessions.ts
 var import_node3 = require("@remix-run/node");
-console.log("asdfjlajdsf", process.env.SESSION_SECRET);
 var { getSession, commitSession, destroySession } = (0, import_node3.createCookieSessionStorage)({
   cookie: {
     name: "__session",
