@@ -23,7 +23,7 @@ export const action: ActionFunction = async ({ request, params }) => {
 
   session.flash("globalMessage", "Message successfully sent!");
 
-  return redirect("/", {
+  return redirect("/contact", {
     headers: {
       "Set-Cookie": await commitSession(session),
     },
@@ -37,8 +37,8 @@ const Contact = () => {
         <form
           method="post"
           name="contact"
-          data-netlify="true"
           action="/contact"
+          data-netlify="true"
         >
           <div className="shadow-md rounded py-8 px-12 bg-white space-y-4 md:mx-16 lg:mx-32 xl:mx-64 text-zinc-700 text-sm">
             <div className="space-y-4 md:space-x-4">

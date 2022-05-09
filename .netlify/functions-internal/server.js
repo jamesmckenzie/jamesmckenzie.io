@@ -104,6 +104,7 @@ __export(root_exports, {
   meta: () => meta
 });
 var import_react2 = require("@remix-run/react");
+var import_react3 = require("react");
 
 // app/cookies.ts
 var import_node = require("@remix-run/node");
@@ -115,8 +116,24 @@ var getColorScheme = async (request) => {
   return userSelectedColorScheme ?? systemPreferredColorScheme ?? "light";
 };
 
+// app/sessions.ts
+var import_node2 = require("@remix-run/node");
+var { getSession, commitSession, destroySession } = (0, import_node2.createCookieSessionStorage)({
+  cookie: {
+    name: "__session",
+    domain: false ? "jamesmckenzie.io" : void 0,
+    expires: new Date(Date.now() + 6e4),
+    httpOnly: true,
+    maxAge: 60,
+    path: "/",
+    sameSite: "lax",
+    secrets: [process.env.SESSION_SECRET],
+    secure: true
+  }
+});
+
 // app/styles/app.css
-var app_default = "/build/_assets/app-ATFTGVWN.css";
+var app_default = "/build/_assets/app-V66Z27NB.css";
 
 // route:/Users/jamesmckenzie/repos/jamesmckenzie.io/app/root.tsx
 function links() {
@@ -143,12 +160,36 @@ var meta = () => ({
 var headers = () => ({
   "Accept-CH": "Sec-CH-Prefers-Color-Scheme"
 });
+var getFlashMessage = async (request) => {
+  const session = await getSession(request.headers.get("Cookie"));
+  return session.get("globalMessage") || null;
+};
 var loader = async ({ request }) => ({
   colorScheme: await getColorScheme(request),
-  gaTrackingId: process.env.GA_TRACKING_ID
+  gaTrackingId: process.env.GA_TRACKING_ID,
+  flashMessage: await getFlashMessage(request)
 });
+var Toast = ({ message }) => {
+  const [show, setShow] = (0, import_react3.useState)(false);
+  const ref = (0, import_react3.useRef)(message);
+  (0, import_react3.useEffect)(() => {
+    if (message) {
+      setShow(true);
+      let timer = setTimeout(() => setShow(false), 3 * 1e3);
+      return () => {
+        clearTimeout(timer);
+      };
+    }
+  }, []);
+  return /* @__PURE__ */ React.createElement("div", {
+    className: `fixed bottom-8 right-8  z-10 transition-all duration-500 ease-in-out ${show ? "opacity-100 -translate-y-1/2" : "opacity-0 -translate-y-100"}`
+  }, /* @__PURE__ */ React.createElement("output", {
+    role: "status",
+    className: "text-green-800 bg-green-100  border border-green-500 p-4 rounded shadow-md transition-transform "
+  }, ref.current));
+};
 function App() {
-  const { colorScheme, gaTrackingId } = (0, import_react2.useLoaderData)();
+  const { colorScheme, gaTrackingId, flashMessage } = (0, import_react2.useLoaderData)();
   return /* @__PURE__ */ React.createElement("html", {
     lang: "en",
     className: colorScheme
@@ -168,7 +209,9 @@ function App() {
                 });
               `
     }
-  })), /* @__PURE__ */ React.createElement(import_react2.Outlet, null), /* @__PURE__ */ React.createElement(import_react2.ScrollRestoration, null), /* @__PURE__ */ React.createElement(import_react2.Scripts, null), /* @__PURE__ */ React.createElement(import_react2.LiveReload, null)));
+  })), /* @__PURE__ */ React.createElement(Toast, {
+    message: flashMessage
+  }), /* @__PURE__ */ React.createElement(import_react2.Outlet, null), /* @__PURE__ */ React.createElement(import_react2.ScrollRestoration, null), /* @__PURE__ */ React.createElement(import_react2.Scripts, null), /* @__PURE__ */ React.createElement(import_react2.LiveReload, null)));
 }
 
 // route:/Users/jamesmckenzie/repos/jamesmckenzie.io/app/routes/action/setTheme.tsx
@@ -176,11 +219,11 @@ var setTheme_exports = {};
 __export(setTheme_exports, {
   action: () => action
 });
-var import_node2 = require("@remix-run/node");
+var import_node3 = require("@remix-run/node");
 var action = async ({ request }) => {
   const currentColorScheme = await getColorScheme(request);
   const newColorScheme = currentColorScheme === "light" ? "dark" : "light";
-  return (0, import_node2.json)({ success: true }, {
+  return (0, import_node3.json)({ success: true }, {
     headers: {
       "Set-Cookie": await colorSchemeCookie.serialize(newColorScheme)
     }
@@ -196,7 +239,7 @@ __export(contact_exports, {
 var import_node4 = require("@remix-run/node");
 
 // app/components/Layout/Layout.tsx
-var import_react5 = __toESM(require("react"));
+var import_react6 = __toESM(require("react"));
 
 // app/components/Backround/Background.tsx
 var Background = ({ children }) => /* @__PURE__ */ React.createElement("div", {
@@ -205,12 +248,12 @@ var Background = ({ children }) => /* @__PURE__ */ React.createElement("div", {
 var Background_default = Background;
 
 // app/components/Header/Header.tsx
-var import_react4 = require("@remix-run/react");
+var import_react5 = require("@remix-run/react");
 
 // app/components/DarkModeToggle/index.tsx
-var import_react3 = require("@remix-run/react");
+var import_react4 = require("@remix-run/react");
 var DarkModeToggle = () => {
-  const fetcher = (0, import_react3.useFetcher)();
+  const fetcher = (0, import_react4.useFetcher)();
   return /* @__PURE__ */ React.createElement(fetcher.Form, {
     method: "post",
     action: "/action/setTheme"
@@ -325,7 +368,7 @@ var SocialBar_default = SocialBar;
 // app/components/Header/Header.tsx
 var HeaderLink = (_a) => {
   var _b = _a, { children } = _b, props = __objRest(_b, ["children"]);
-  return /* @__PURE__ */ React.createElement(import_react4.NavLink, __spreadProps(__spreadValues({}, props), {
+  return /* @__PURE__ */ React.createElement(import_react5.NavLink, __spreadProps(__spreadValues({}, props), {
     className: ({ isActive }) => `font-inconsolata focus:outline-none focus-visible:ring-4 px-4 py-3 dark:hover:bg-gray-800 hover:bg-gray-100 hover:shadow-inner rounded transition-all ${isActive && "underline underline-offset-2 decoration-pink-700 decoration-4"}`
   }), /* @__PURE__ */ React.createElement("span", {
     className: " uppercase text-purple-900 dark:text-white text-lg"
@@ -347,28 +390,12 @@ var Header = () => {
 var Header_default = Header;
 
 // app/components/Layout/Layout.tsx
-var Layout = ({ children }) => /* @__PURE__ */ import_react5.default.createElement(Background_default, null, /* @__PURE__ */ import_react5.default.createElement("div", {
+var Layout = ({ children }) => /* @__PURE__ */ import_react6.default.createElement(Background_default, null, /* @__PURE__ */ import_react6.default.createElement("div", {
   className: "relative px-8 lg:px-32"
-}, /* @__PURE__ */ import_react5.default.createElement("section", {
+}, /* @__PURE__ */ import_react6.default.createElement("section", {
   className: "flex w-full justify-between h-20 py-4"
-}, /* @__PURE__ */ import_react5.default.createElement(Header_default, null)), children));
+}, /* @__PURE__ */ import_react6.default.createElement(Header_default, null)), children));
 var Layout_default = Layout;
-
-// app/sessions.ts
-var import_node3 = require("@remix-run/node");
-var { getSession, commitSession, destroySession } = (0, import_node3.createCookieSessionStorage)({
-  cookie: {
-    name: "__session",
-    domain: false ? "jamesmckenzie.io" : void 0,
-    expires: new Date(Date.now() + 6e4),
-    httpOnly: true,
-    maxAge: 60,
-    path: "/",
-    sameSite: "lax",
-    secrets: [process.env.SESSION_SECRET],
-    secure: true
-  }
-});
 
 // route:/Users/jamesmckenzie/repos/jamesmckenzie.io/app/routes/contact.tsx
 var Input = ({ id, labelValue, type }) => {
@@ -384,7 +411,7 @@ var Input = ({ id, labelValue, type }) => {
 var action2 = async ({ request, params }) => {
   const session = await getSession(request.headers.get("Cookie"));
   session.flash("globalMessage", "Message successfully sent!");
-  return (0, import_node4.redirect)("/", {
+  return (0, import_node4.redirect)("/contact", {
     headers: {
       "Set-Cookie": await commitSession(session)
     }
@@ -396,8 +423,8 @@ var Contact = () => {
   }, /* @__PURE__ */ React.createElement("form", {
     method: "post",
     name: "contact",
-    "data-netlify": "true",
-    action: "/contact"
+    action: "/contact",
+    "data-netlify": "true"
   }, /* @__PURE__ */ React.createElement("div", {
     className: "shadow-md rounded py-8 px-12 bg-white space-y-4 md:mx-16 lg:mx-32 xl:mx-64 text-zinc-700 text-sm"
   }, /* @__PURE__ */ React.createElement("div", {
@@ -435,10 +462,10 @@ __export(routes_exports, {
   default: () => routes_default,
   loader: () => loader2
 });
-var import_react7 = __toESM(require("react"));
+var import_react8 = __toESM(require("react"));
 
 // app/components/Hero/Hero.tsx
-var import_react6 = require("@remix-run/react");
+var import_react7 = require("@remix-run/react");
 var Hero = () => /* @__PURE__ */ React.createElement("div", {
   className: "space-y-8 animate-fade"
 }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", {
@@ -462,7 +489,7 @@ var Hero = () => /* @__PURE__ */ React.createElement("div", {
   href: "https://www.checkout.com/"
 }, "Checkout.com"), ". Specialising in modern ", /* @__PURE__ */ React.createElement("strong", null, "front end architecture"), " and", " ", /* @__PURE__ */ React.createElement("strong", null, "tooling"), ", I primarily work in", " ", /* @__PURE__ */ React.createElement("strong", null, "Typescript"), ", as well as staying up to date with modern application and systems programming in languages such as", " ", /* @__PURE__ */ React.createElement("strong", null, "Rust"), " and ", /* @__PURE__ */ React.createElement("strong", null, "Golang"), ".")), /* @__PURE__ */ React.createElement("div", {
   className: "ml-1 lg:ml-2"
-}, /* @__PURE__ */ React.createElement(import_react6.Link, {
+}, /* @__PURE__ */ React.createElement(import_react7.Link, {
   to: "/contact",
   className: "font-inconsolata shadow-lg shadow-pink-400/50 border-2 border-purple-700 rounded px-4 py-2 text-lg uppercase text-purple-700 hover:text-white focus:text-white hover:bg-purple-700 focus:bg-purple-700 transition-colors hover:saturate-150 inline-block cursor-pointer outline-offset-4 dark:border-white dark:hover:border-pink-500 dark:focus:border-pink-500 dark:text-white dark:shadow-pink-700/50 dark:hover:bg-pink-500 dark:focus:bg-pink-500 focus:outline-none focus-visible:ring-4 "
 }, "Get in touch")));
@@ -470,7 +497,7 @@ var Hero_default = Hero;
 
 // route:/Users/jamesmckenzie/repos/jamesmckenzie.io/app/routes/index.tsx
 var import_node5 = require("@remix-run/node");
-var import_react8 = require("@remix-run/react");
+var import_react9 = require("@remix-run/react");
 var loader2 = async ({ request }) => {
   const session = await getSession(request.headers.get("Cookie"));
   const message = session.get("globalMessage") || null;
@@ -480,36 +507,16 @@ var loader2 = async ({ request }) => {
     }
   });
 };
-var Toast = ({ message }) => {
-  const [show, setShow] = (0, import_react7.useState)(!!message);
-  const ref = (0, import_react7.useRef)(message);
-  (0, import_react7.useEffect)(() => {
-    if (show) {
-      let timer1 = setTimeout(() => setShow(false), 3 * 1e3);
-      return () => {
-        clearTimeout(timer1);
-      };
-    }
-  }, []);
-  return show ? /* @__PURE__ */ import_react7.default.createElement("div", {
-    className: "fixed bottom-8 right-2 -translate-x-1/2 -translate-y-1/2"
-  }, /* @__PURE__ */ import_react7.default.createElement("output", {
-    role: "status",
-    className: "text-green-800 dark:text-white bg-green-300 bg-opacity-30 border border-green-500 p-4  rounded shadow-md transition-transform "
-  }, ref.current)) : null;
-};
 var HomePage = () => {
-  const { message } = (0, import_react8.useLoaderData)();
-  return /* @__PURE__ */ import_react7.default.createElement(import_react7.default.Fragment, null, /* @__PURE__ */ import_react7.default.createElement(Toast, {
-    message
-  }), /* @__PURE__ */ import_react7.default.createElement(Layout_default, null, /* @__PURE__ */ import_react7.default.createElement("section", {
+  const { message } = (0, import_react9.useLoaderData)();
+  return /* @__PURE__ */ import_react8.default.createElement(import_react8.default.Fragment, null, /* @__PURE__ */ import_react8.default.createElement(Layout_default, null, /* @__PURE__ */ import_react8.default.createElement("section", {
     className: "-mt-20 h-screen flex items-center"
-  }, /* @__PURE__ */ import_react7.default.createElement(Hero_default, null))));
+  }, /* @__PURE__ */ import_react8.default.createElement(Hero_default, null))));
 };
 var routes_default = HomePage;
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { "version": "11847cd7", "entry": { "module": "/build/entry.client-BL6ZOP3O.js", "imports": ["/build/_shared/chunk-FKR6CAAF.js", "/build/_shared/chunk-JSO5GUHK.js"] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "module": "/build/root-EOIOBG52.js", "imports": void 0, "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/action/setTheme": { "id": "routes/action/setTheme", "parentId": "root", "path": "action/setTheme", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/action/setTheme-YUOOPRQ4.js", "imports": void 0, "hasAction": true, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/contact-TYXF7I7Y.js", "imports": ["/build/_shared/chunk-TJ3FBU6I.js"], "hasAction": true, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/index": { "id": "routes/index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "module": "/build/routes/index-L6ZOQDLE.js", "imports": ["/build/_shared/chunk-TJ3FBU6I.js"], "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false } }, "url": "/build/manifest-11847CD7.js" };
+var assets_manifest_default = { "version": "1cdf1d57", "entry": { "module": "/build/entry.client-BL6ZOP3O.js", "imports": ["/build/_shared/chunk-FKR6CAAF.js", "/build/_shared/chunk-JSO5GUHK.js"] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "module": "/build/root-XHVCWJAP.js", "imports": void 0, "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/action/setTheme": { "id": "routes/action/setTheme", "parentId": "root", "path": "action/setTheme", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/action/setTheme-YUOOPRQ4.js", "imports": void 0, "hasAction": true, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/contact-6BX3V7IX.js", "imports": ["/build/_shared/chunk-TJ3FBU6I.js"], "hasAction": true, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/index": { "id": "routes/index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "module": "/build/routes/index-D6OUZFFH.js", "imports": ["/build/_shared/chunk-TJ3FBU6I.js"], "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false } }, "url": "/build/manifest-1CDF1D57.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var entry = { module: entry_server_exports };

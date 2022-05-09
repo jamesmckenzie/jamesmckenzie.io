@@ -12,7 +12,9 @@ import {
   ScrollRestoration,
   useLoaderData,
 } from "@remix-run/react";
+import { useState, useRef, useEffect } from "react";
 import { getColorScheme } from "./cookies";
+import { getSession } from "./sessions";
 import styles from "./styles/app.css";
 
 export function links() {
@@ -43,13 +45,51 @@ export const headers: HeadersFunction = () => ({
   "Accept-CH": "Sec-CH-Prefers-Color-Scheme",
 });
 
+const getFlashMessage = async (request: Request) => {
+  const session = await getSession(request.headers.get("Cookie"));
+
+  return session.get("globalMessage") || null;
+};
+
 export const loader: LoaderFunction = async ({ request }) => ({
   colorScheme: await getColorScheme(request),
   gaTrackingId: process.env.GA_TRACKING_ID,
+  flashMessage: await getFlashMessage(request),
 });
 
+const Toast: React.FC<{ message: string }> = ({ message }) => {
+  const [show, setShow] = useState(false);
+  const ref = useRef(message);
+
+  useEffect(() => {
+    if (message) {
+      setShow(true);
+      let timer = setTimeout(() => setShow(false), 3 * 1000);
+
+      return () => {
+        clearTimeout(timer);
+      };
+    }
+  }, []);
+
+  return (
+    <div
+      className={`fixed bottom-8 right-8  z-10 transition-all duration-500 ease-in-out ${
+        show ? "opacity-100 -translate-y-1/2" : "opacity-0 -translate-y-100"
+      }`}
+    >
+      <output
+        role="status"
+        className="text-green-800 bg-green-100  border border-green-500 p-4 rounded shadow-md transition-transform "
+      >
+        {ref.current}
+      </output>
+    </div>
+  );
+};
+
 export default function App() {
-  const { colorScheme, gaTrackingId } = useLoaderData();
+  const { colorScheme, gaTrackingId, flashMessage } = useLoaderData();
 
   return (
     <html lang="en" className={colorScheme}>
@@ -80,7 +120,7 @@ export default function App() {
             />
           </>
         )}
-
+        <Toast message={flashMessage} />
         <Outlet />
         <ScrollRestoration />
         <Scripts />
