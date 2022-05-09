@@ -421,7 +421,7 @@ var Contact = () => {
   return /* @__PURE__ */ React.createElement(Layout_default, null, /* @__PURE__ */ React.createElement("section", {
     className: "-mt-20 h-screen flex flex-col items-stretch justify-center"
   }, /* @__PURE__ */ React.createElement("form", {
-    method: "post",
+    method: "POST",
     name: "contact",
     action: "/contact",
     "data-netlify": "true"
@@ -459,8 +459,7 @@ var contact_default = Contact;
 // route:/Users/jamesmckenzie/repos/jamesmckenzie.io/app/routes/index.tsx
 var routes_exports = {};
 __export(routes_exports, {
-  default: () => routes_default,
-  loader: () => loader2
+  default: () => routes_default
 });
 var import_react8 = __toESM(require("react"));
 
@@ -496,19 +495,7 @@ var Hero = () => /* @__PURE__ */ React.createElement("div", {
 var Hero_default = Hero;
 
 // route:/Users/jamesmckenzie/repos/jamesmckenzie.io/app/routes/index.tsx
-var import_node5 = require("@remix-run/node");
-var import_react9 = require("@remix-run/react");
-var loader2 = async ({ request }) => {
-  const session = await getSession(request.headers.get("Cookie"));
-  const message = session.get("globalMessage") || null;
-  return (0, import_node5.json)({ message }, {
-    headers: {
-      "Set-Cookie": await commitSession(session)
-    }
-  });
-};
 var HomePage = () => {
-  const { message } = (0, import_react9.useLoaderData)();
   return /* @__PURE__ */ import_react8.default.createElement(import_react8.default.Fragment, null, /* @__PURE__ */ import_react8.default.createElement(Layout_default, null, /* @__PURE__ */ import_react8.default.createElement("section", {
     className: "-mt-20 h-screen flex items-center"
   }, /* @__PURE__ */ import_react8.default.createElement(Hero_default, null))));
@@ -516,7 +503,7 @@ var HomePage = () => {
 var routes_default = HomePage;
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { "version": "1cdf1d57", "entry": { "module": "/build/entry.client-BL6ZOP3O.js", "imports": ["/build/_shared/chunk-FKR6CAAF.js", "/build/_shared/chunk-JSO5GUHK.js"] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "module": "/build/root-XHVCWJAP.js", "imports": void 0, "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/action/setTheme": { "id": "routes/action/setTheme", "parentId": "root", "path": "action/setTheme", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/action/setTheme-YUOOPRQ4.js", "imports": void 0, "hasAction": true, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/contact-6BX3V7IX.js", "imports": ["/build/_shared/chunk-TJ3FBU6I.js"], "hasAction": true, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/index": { "id": "routes/index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "module": "/build/routes/index-D6OUZFFH.js", "imports": ["/build/_shared/chunk-TJ3FBU6I.js"], "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false } }, "url": "/build/manifest-1CDF1D57.js" };
+var assets_manifest_default = { "version": "644bb073", "entry": { "module": "/build/entry.client-BL6ZOP3O.js", "imports": ["/build/_shared/chunk-FKR6CAAF.js", "/build/_shared/chunk-JSO5GUHK.js"] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "module": "/build/root-XHVCWJAP.js", "imports": void 0, "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/action/setTheme": { "id": "routes/action/setTheme", "parentId": "root", "path": "action/setTheme", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/action/setTheme-YUOOPRQ4.js", "imports": void 0, "hasAction": true, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/contact-GMUPHSZM.js", "imports": ["/build/_shared/chunk-TJ3FBU6I.js"], "hasAction": true, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/index": { "id": "routes/index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "module": "/build/routes/index-SQCJKHX3.js", "imports": ["/build/_shared/chunk-TJ3FBU6I.js"], "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false } }, "url": "/build/manifest-644BB073.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var entry = { module: entry_server_exports };
