@@ -1,6 +1,28 @@
 import { NavLink, NavLinkProps } from "@remix-run/react";
 import DarkModeToggle from "../DarkModeToggle";
-import { SocialBar } from "../SocialBar";
+import { HorizontalSocialBar, VerticalSocialBar } from "../SocialBar";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { IoClose } from "react-icons/io5";
+import { useState } from "react";
+
+const Menu = ({ closeMenu }: { closeMenu: () => void }) => {
+  return (
+    <>
+      <div className="w-screen h-full absolute top-0 left-0 opacity-75 bg-black z-40"></div>
+      <div className="w-screen z-50 shadow-lg px-8 py-7 top-0 right-0 fixed h-full flex flex-col items-center">
+        <div className="text-purple-900 dark:text-white mb-32">
+          <button
+            onClick={closeMenu}
+            className="text-purple-900 dark:text-white fill-purple-900 dark:fill-white"
+          >
+            <IoClose size={64} />
+          </button>
+        </div>
+        <VerticalSocialBar />
+      </div>
+    </>
+  );
+};
 
 const HeaderLink = ({ children, ...props }: NavLinkProps) => (
   <NavLink
@@ -19,14 +41,31 @@ const HeaderLink = ({ children, ...props }: NavLinkProps) => (
 );
 
 const Header = () => {
+  const [showSidebar, setShowSidebar] = useState(false);
+
   return (
     <div className="flex justify-between space-x-8 items-center w-full">
-      <div className="space-x-2">
+      <div className="flex items-center space-x-1 sm:space-x-2">
         <HeaderLink to="/">Home</HeaderLink>
         <HeaderLink to="/contact">Contact</HeaderLink>
+        <div className="sm:hidden">
+          <DarkModeToggle />
+        </div>
       </div>
-      <div className="flex space-x-8">
-        <SocialBar />
+      {!showSidebar ? (
+        <button
+          onClick={() => setShowSidebar(true)}
+          className="sm:hidden text-purple-900 dark:text-white"
+        >
+          <GiHamburgerMenu size={24} />
+        </button>
+      ) : (
+        <div className="z-50 sm:hidden text-purple-900 dark:text-white">
+          <Menu closeMenu={() => setShowSidebar(false)}></Menu>
+        </div>
+      )}
+      <div className="hidden sm:flex space-x-8 items-center">
+        <HorizontalSocialBar />
         <DarkModeToggle />
       </div>
     </div>

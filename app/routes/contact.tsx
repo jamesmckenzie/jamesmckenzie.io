@@ -1,5 +1,5 @@
 import { ActionFunction, LoaderFunction, redirect } from "@remix-run/node";
-import { Form } from "@remix-run/react";
+import { Form, useTransition } from "@remix-run/react";
 import { Layout } from "~/components/Layout";
 import { commitSession, getSession } from "~/sessions";
 
@@ -23,7 +23,7 @@ export const action: ActionFunction = async ({ request, params }) => {
 
   session.flash("globalMessage", "Message successfully sent!");
 
-  return redirect("/contact", {
+  return redirect("/", {
     headers: {
       "Set-Cookie": await commitSession(session),
     },
@@ -31,11 +31,18 @@ export const action: ActionFunction = async ({ request, params }) => {
 };
 
 const Contact = () => {
+  const transition = useTransition();
+  console.log(
+    "🚀 ~ file: Contact.tsx ~ line 35 ~ Contact ~ transition",
+    transition
+  );
+
   return (
     <Layout>
       <section className="-mt-20 h-screen flex flex-col items-stretch justify-center">
-        <form
-          method="POST"
+        <Form
+          reloadDocument
+          method="post"
           name="contact"
           action="/contact"
           data-netlify="true"
@@ -60,14 +67,15 @@ const Contact = () => {
               />
             </div>
             <button
+              disabled={transition.state === "submitting"}
               name="Submit"
               type="submit"
               className="font-inconsolata shadow-lg shadow-pink-400/50 border-2 border-purple-700 rounded px-4 py-2 text-lg uppercase text-white bg-purple-700 transition hover:saturate-150 focus:saturate-150 inline-block cursor-pointer outline-offset-4 dark:bg-pink-500 dark:border-pink-500 dark:text-white dark:shadow-pink-700/50 focus:outline-none focus-visible:ring-4 "
             >
-              Send!
+              {transition.state === "submitting" ? "Sending..." : "Send!"}
             </button>
           </div>
-        </form>
+        </Form>
       </section>
     </Layout>
   );

@@ -103,6 +103,7 @@ __export(root_exports, {
   loader: () => loader,
   meta: () => meta
 });
+var import_node3 = require("@remix-run/node");
 var import_react2 = require("@remix-run/react");
 var import_react3 = require("react");
 
@@ -133,7 +134,7 @@ var { getSession, commitSession, destroySession } = (0, import_node2.createCooki
 });
 
 // app/styles/app.css
-var app_default = "/build/_assets/app-V66Z27NB.css";
+var app_default = "/build/_assets/app-INNZAHSD.css";
 
 // route:/Users/jamesmckenzie/repos/jamesmckenzie.io/app/root.tsx
 function links() {
@@ -160,33 +161,37 @@ var meta = () => ({
 var headers = () => ({
   "Accept-CH": "Sec-CH-Prefers-Color-Scheme"
 });
-var getFlashMessage = async (request) => {
+var loader = async ({ request }) => {
   const session = await getSession(request.headers.get("Cookie"));
-  return session.get("globalMessage") || null;
+  return (0, import_node3.json)({
+    colorScheme: await getColorScheme(request),
+    gaTrackingId: process.env.GA_TRACKING_ID,
+    flashMessage: session.get("globalMessage") || null
+  }, {
+    headers: {
+      "Set-Cookie": await commitSession(session)
+    }
+  });
 };
-var loader = async ({ request }) => ({
-  colorScheme: await getColorScheme(request),
-  gaTrackingId: process.env.GA_TRACKING_ID,
-  flashMessage: await getFlashMessage(request)
-});
-var Toast = ({ message }) => {
-  const [show, setShow] = (0, import_react3.useState)(false);
-  const ref = (0, import_react3.useRef)(message);
+var Toast = ({ messageText }) => {
+  const [internalMessage, setInternalMessage] = (0, import_react3.useState)(messageText);
   (0, import_react3.useEffect)(() => {
-    if (message) {
-      setShow(true);
-      let timer = setTimeout(() => setShow(false), 3 * 1e3);
+    if (messageText && internalMessage) {
+      setInternalMessage(messageText);
+      const timer = setTimeout(() => {
+        setInternalMessage(null);
+      }, 3e3);
       return () => {
         clearTimeout(timer);
       };
     }
-  }, []);
-  return /* @__PURE__ */ React.createElement("div", {
-    className: `fixed bottom-8 right-8  z-10 transition-all duration-500 ease-in-out ${show ? "opacity-100 -translate-y-1/2" : "opacity-0 -translate-y-100"}`
+  }, [messageText]);
+  return internalMessage ? /* @__PURE__ */ React.createElement("div", {
+    className: `fixed bottom-8 right-8  z-10 transition-all duration-500 ease-in-out ${messageText ? "opacity-100 -translate-y-1/2" : "opacity-0 -translate-y-100"}`
   }, /* @__PURE__ */ React.createElement("output", {
     role: "status",
     className: "text-green-800 bg-green-100  border border-green-500 p-4 rounded shadow-md transition-transform "
-  }, ref.current));
+  }, internalMessage)) : null;
 };
 function App() {
   const { colorScheme, gaTrackingId, flashMessage } = (0, import_react2.useLoaderData)();
@@ -210,7 +215,7 @@ function App() {
               `
     }
   })), /* @__PURE__ */ React.createElement(Toast, {
-    message: flashMessage
+    messageText: flashMessage
   }), /* @__PURE__ */ React.createElement(import_react2.Outlet, null), /* @__PURE__ */ React.createElement(import_react2.ScrollRestoration, null), /* @__PURE__ */ React.createElement(import_react2.Scripts, null), /* @__PURE__ */ React.createElement(import_react2.LiveReload, null)));
 }
 
@@ -219,11 +224,11 @@ var setTheme_exports = {};
 __export(setTheme_exports, {
   action: () => action
 });
-var import_node3 = require("@remix-run/node");
+var import_node4 = require("@remix-run/node");
 var action = async ({ request }) => {
   const currentColorScheme = await getColorScheme(request);
   const newColorScheme = currentColorScheme === "light" ? "dark" : "light";
-  return (0, import_node3.json)({ success: true }, {
+  return (0, import_node4.json)({ success: true }, {
     headers: {
       "Set-Cookie": await colorSchemeCookie.serialize(newColorScheme)
     }
@@ -236,10 +241,11 @@ __export(contact_exports, {
   action: () => action2,
   default: () => contact_default
 });
-var import_node4 = require("@remix-run/node");
+var import_node5 = require("@remix-run/node");
+var import_react8 = require("@remix-run/react");
 
 // app/components/Layout/Layout.tsx
-var import_react6 = __toESM(require("react"));
+var import_react7 = __toESM(require("react"));
 
 // app/components/Backround/Background.tsx
 var Background = ({ children }) => /* @__PURE__ */ React.createElement("div", {
@@ -342,30 +348,83 @@ var DarkModeToggle_default = DarkModeToggle;
 
 // app/components/SocialBar/SocialBar.tsx
 var import_fi = require("react-icons/fi");
-var SocialBar = () => /* @__PURE__ */ React.createElement("div", {
-  className: "flex space-x-8 text-pink-700 dark:text-white "
-}, /* @__PURE__ */ React.createElement("a", {
+var SocialIcons = () => /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("a", {
   className: "hover:saturate-150 focus:saturate-150 dark:hover:text-pink-500 dark:focus:text-pink-500 transition-all focus:outline-none focus-visible:ring-4  rounded-lg p-0.5",
   href: "https://github.com/jamesmckenzie",
-  "aria-label": "View James McKenzie's Github page"
+  "aria-label": "View James McKenzie's Github page",
+  target: "_blank"
 }, /* @__PURE__ */ React.createElement(import_fi.FiGithub, {
   size: "2.5em"
 })), /* @__PURE__ */ React.createElement("a", {
   className: "hover:saturate-150 focus:saturate-150 dark:hover:text-pink-500 dark:focus:text-pink-500 transition focus:outline-none focus-visible:ring-4  rounded-lg p-0.5",
   href: "https://twitter.com/jmc_kenzie",
-  "aria-label": "View James McKenzie's Twitter profile"
+  "aria-label": "View James McKenzie's Twitter profile",
+  target: "_blank"
 }, /* @__PURE__ */ React.createElement(import_fi.FiTwitter, {
   size: "2.5em"
 })), /* @__PURE__ */ React.createElement("a", {
   className: "hover:saturate-150 focus:saturate-150 dark:hover:text-pink-500 dark:focus:text-pink-500 transition-all focus:outline-none focus-visible:ring-4  rounded-lg p-0.5",
-  href: "https://www.linkedin.com/in/james-mckenzie-10975314/",
-  "aria-label": "View James McKenzie's LinkedIn profile"
+  href: "https://www.linkedin.com/in/\u{1F680}-james-mckenzie-10975314/",
+  "aria-label": "View James McKenzie's LinkedIn profile",
+  target: "_blank"
 }, /* @__PURE__ */ React.createElement(import_fi.FiLinkedin, {
   size: "2.5em"
 })));
-var SocialBar_default = SocialBar;
+var HorizontalSocialBar = () => /* @__PURE__ */ React.createElement("div", {
+  className: "flex space-x-8 text-pink-700 dark:text-white "
+}, /* @__PURE__ */ React.createElement(SocialIcons, null));
+var VerticalSocialBar = () => /* @__PURE__ */ React.createElement("div", {
+  className: "flex-col items-center space-x-8 text-pink-700 dark:text-white "
+}, /* @__PURE__ */ React.createElement("a", {
+  className: "hover:saturate-150 focus:saturate-150 dark:hover:text-pink-500 dark:focus:text-pink-500 transition-all focus:outline-none focus-visible:ring-4  rounded-lg p-0.5",
+  href: "https://github.com/jamesmckenzie",
+  "aria-label": "View James McKenzie's Github page",
+  target: "_blank"
+}, /* @__PURE__ */ React.createElement("div", {
+  className: "flex items-center"
+}, /* @__PURE__ */ React.createElement(import_fi.FiGithub, {
+  size: "2.5em",
+  className: "mr-4"
+}), " GITHUB")), /* @__PURE__ */ React.createElement("a", {
+  className: "hover:saturate-150 focus:saturate-150 dark:hover:text-pink-500 dark:focus:text-pink-500 transition focus:outline-none focus-visible:ring-4  rounded-lg p-0.5",
+  href: "https://twitter.com/jmc_kenzie",
+  "aria-label": "View James McKenzie's Twitter profile",
+  target: "_blank"
+}, /* @__PURE__ */ React.createElement("div", {
+  className: "flex items-center"
+}, /* @__PURE__ */ React.createElement(import_fi.FiTwitter, {
+  size: "2.5em",
+  className: "mr-4"
+}), " TWITTER")), /* @__PURE__ */ React.createElement("a", {
+  className: "hover:saturate-150 focus:saturate-150 dark:hover:text-pink-500 dark:focus:text-pink-500 transition-all focus:outline-none focus-visible:ring-4  rounded-lg p-0.5",
+  href: "https://www.linkedin.com/in/\u{1F680}-james-mckenzie-10975314/",
+  "aria-label": "View James McKenzie's LinkedIn profile",
+  target: "_blank"
+}, /* @__PURE__ */ React.createElement("div", {
+  className: "flex items-center"
+}, /* @__PURE__ */ React.createElement(import_fi.FiLinkedin, {
+  size: "2.5em",
+  className: "mr-4"
+}), " LINKEDIN")));
 
 // app/components/Header/Header.tsx
+var import_gi = require("react-icons/gi");
+var import_io5 = require("react-icons/io5");
+var import_react6 = require("react");
+var Menu = ({ closeMenu }) => {
+  return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", {
+    className: "w-screen h-full absolute top-0 left-0 opacity-75 bg-black z-40"
+  }), /* @__PURE__ */ React.createElement("div", {
+    className: "w-screen z-50 shadow-lg px-8 py-7 top-0 right-0 fixed h-full flex flex-col items-center"
+  }, /* @__PURE__ */ React.createElement("div", {
+    className: "text-purple-900 dark:text-white mb-32"
+  }, /* @__PURE__ */ React.createElement("button", {
+    onClick: closeMenu,
+    className: "text-purple-900 dark:text-white fill-purple-900 dark:fill-white"
+  }, /* @__PURE__ */ React.createElement(import_io5.IoClose, {
+    size: 64
+  }))), /* @__PURE__ */ React.createElement(VerticalSocialBar, null)));
+};
 var HeaderLink = (_a) => {
   var _b = _a, { children } = _b, props = __objRest(_b, ["children"]);
   return /* @__PURE__ */ React.createElement(import_react5.NavLink, __spreadProps(__spreadValues({}, props), {
@@ -375,26 +434,38 @@ var HeaderLink = (_a) => {
   }, children));
 };
 var Header = () => {
+  const [showSidebar, setShowSidebar] = (0, import_react6.useState)(false);
   return /* @__PURE__ */ React.createElement("div", {
     className: "flex justify-between space-x-8 items-center w-full"
   }, /* @__PURE__ */ React.createElement("div", {
-    className: "space-x-2"
+    className: "flex items-center space-x-1 sm:space-x-2"
   }, /* @__PURE__ */ React.createElement(HeaderLink, {
     to: "/"
   }, "Home"), /* @__PURE__ */ React.createElement(HeaderLink, {
     to: "/contact"
-  }, "Contact")), /* @__PURE__ */ React.createElement("div", {
-    className: "flex space-x-8"
-  }, /* @__PURE__ */ React.createElement(SocialBar_default, null), /* @__PURE__ */ React.createElement(DarkModeToggle_default, null)));
+  }, "Contact"), /* @__PURE__ */ React.createElement("div", {
+    className: "sm:hidden"
+  }, /* @__PURE__ */ React.createElement(DarkModeToggle_default, null))), !showSidebar ? /* @__PURE__ */ React.createElement("button", {
+    onClick: () => setShowSidebar(true),
+    className: "sm:hidden text-purple-900 dark:text-white"
+  }, /* @__PURE__ */ React.createElement(import_gi.GiHamburgerMenu, {
+    size: 24
+  })) : /* @__PURE__ */ React.createElement("div", {
+    className: "z-50 sm:hidden text-purple-900 dark:text-white"
+  }, /* @__PURE__ */ React.createElement(Menu, {
+    closeMenu: () => setShowSidebar(false)
+  })), /* @__PURE__ */ React.createElement("div", {
+    className: "hidden sm:flex space-x-8 items-center"
+  }, /* @__PURE__ */ React.createElement(HorizontalSocialBar, null), /* @__PURE__ */ React.createElement(DarkModeToggle_default, null)));
 };
 var Header_default = Header;
 
 // app/components/Layout/Layout.tsx
-var Layout = ({ children }) => /* @__PURE__ */ import_react6.default.createElement(Background_default, null, /* @__PURE__ */ import_react6.default.createElement("div", {
+var Layout = ({ children }) => /* @__PURE__ */ import_react7.default.createElement(Background_default, null, /* @__PURE__ */ import_react7.default.createElement("div", {
   className: "relative px-8 lg:px-32"
-}, /* @__PURE__ */ import_react6.default.createElement("section", {
+}, /* @__PURE__ */ import_react7.default.createElement("section", {
   className: "flex w-full justify-between h-20 py-4"
-}, /* @__PURE__ */ import_react6.default.createElement(Header_default, null)), children));
+}, /* @__PURE__ */ import_react7.default.createElement(Header_default, null)), children));
 var Layout_default = Layout;
 
 // route:/Users/jamesmckenzie/repos/jamesmckenzie.io/app/routes/contact.tsx
@@ -411,17 +482,20 @@ var Input = ({ id, labelValue, type }) => {
 var action2 = async ({ request, params }) => {
   const session = await getSession(request.headers.get("Cookie"));
   session.flash("globalMessage", "Message successfully sent!");
-  return (0, import_node4.redirect)("/contact", {
+  return (0, import_node5.redirect)("/", {
     headers: {
       "Set-Cookie": await commitSession(session)
     }
   });
 };
 var Contact = () => {
+  const transition = (0, import_react8.useTransition)();
+  console.log("\u{1F680} ~ file: Contact.tsx ~ line 35 ~ Contact ~ transition", transition);
   return /* @__PURE__ */ React.createElement(Layout_default, null, /* @__PURE__ */ React.createElement("section", {
     className: "-mt-20 h-screen flex flex-col items-stretch justify-center"
-  }, /* @__PURE__ */ React.createElement("form", {
-    method: "POST",
+  }, /* @__PURE__ */ React.createElement(import_react8.Form, {
+    reloadDocument: true,
+    method: "post",
     name: "contact",
     action: "/contact",
     "data-netlify": "true"
@@ -449,10 +523,11 @@ var Contact = () => {
     id: "message",
     className: "border-gray-200 border shadow-sm rounded w-full resize-none h-32"
   })), /* @__PURE__ */ React.createElement("button", {
+    disabled: transition.state === "submitting",
     name: "Submit",
     type: "submit",
     className: "font-inconsolata shadow-lg shadow-pink-400/50 border-2 border-purple-700 rounded px-4 py-2 text-lg uppercase text-white bg-purple-700 transition hover:saturate-150 focus:saturate-150 inline-block cursor-pointer outline-offset-4 dark:bg-pink-500 dark:border-pink-500 dark:text-white dark:shadow-pink-700/50 focus:outline-none focus-visible:ring-4 "
-  }, "Send!")))));
+  }, transition.state === "submitting" ? "Sending..." : "Send!")))));
 };
 var contact_default = Contact;
 
@@ -461,10 +536,10 @@ var routes_exports = {};
 __export(routes_exports, {
   default: () => routes_default
 });
-var import_react8 = __toESM(require("react"));
+var import_react10 = __toESM(require("react"));
 
 // app/components/Hero/Hero.tsx
-var import_react7 = require("@remix-run/react");
+var import_react9 = require("@remix-run/react");
 var Hero = () => /* @__PURE__ */ React.createElement("div", {
   className: "space-y-8 animate-fade"
 }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", {
@@ -488,7 +563,7 @@ var Hero = () => /* @__PURE__ */ React.createElement("div", {
   href: "https://www.checkout.com/"
 }, "Checkout.com"), ". Specialising in modern ", /* @__PURE__ */ React.createElement("strong", null, "front end architecture"), " and", " ", /* @__PURE__ */ React.createElement("strong", null, "tooling"), ", I primarily work in", " ", /* @__PURE__ */ React.createElement("strong", null, "Typescript"), ", as well as staying up to date with modern application and systems programming in languages such as", " ", /* @__PURE__ */ React.createElement("strong", null, "Rust"), " and ", /* @__PURE__ */ React.createElement("strong", null, "Golang"), ".")), /* @__PURE__ */ React.createElement("div", {
   className: "ml-1 lg:ml-2"
-}, /* @__PURE__ */ React.createElement(import_react7.Link, {
+}, /* @__PURE__ */ React.createElement(import_react9.Link, {
   to: "/contact",
   className: "font-inconsolata shadow-lg shadow-pink-400/50 border-2 border-purple-700 rounded px-4 py-2 text-lg uppercase text-purple-700 hover:text-white focus:text-white hover:bg-purple-700 focus:bg-purple-700 transition-colors hover:saturate-150 inline-block cursor-pointer outline-offset-4 dark:border-white dark:hover:border-pink-500 dark:focus:border-pink-500 dark:text-white dark:shadow-pink-700/50 dark:hover:bg-pink-500 dark:focus:bg-pink-500 focus:outline-none focus-visible:ring-4 "
 }, "Get in touch")));
@@ -496,14 +571,14 @@ var Hero_default = Hero;
 
 // route:/Users/jamesmckenzie/repos/jamesmckenzie.io/app/routes/index.tsx
 var HomePage = () => {
-  return /* @__PURE__ */ import_react8.default.createElement(import_react8.default.Fragment, null, /* @__PURE__ */ import_react8.default.createElement(Layout_default, null, /* @__PURE__ */ import_react8.default.createElement("section", {
+  return /* @__PURE__ */ import_react10.default.createElement(Layout_default, null, /* @__PURE__ */ import_react10.default.createElement("section", {
     className: "-mt-20 h-screen flex items-center"
-  }, /* @__PURE__ */ import_react8.default.createElement(Hero_default, null))));
+  }, /* @__PURE__ */ import_react10.default.createElement(Hero_default, null)));
 };
 var routes_default = HomePage;
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { "version": "644bb073", "entry": { "module": "/build/entry.client-BL6ZOP3O.js", "imports": ["/build/_shared/chunk-FKR6CAAF.js", "/build/_shared/chunk-JSO5GUHK.js"] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "module": "/build/root-XHVCWJAP.js", "imports": void 0, "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/action/setTheme": { "id": "routes/action/setTheme", "parentId": "root", "path": "action/setTheme", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/action/setTheme-YUOOPRQ4.js", "imports": void 0, "hasAction": true, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/contact-GMUPHSZM.js", "imports": ["/build/_shared/chunk-TJ3FBU6I.js"], "hasAction": true, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/index": { "id": "routes/index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "module": "/build/routes/index-SQCJKHX3.js", "imports": ["/build/_shared/chunk-TJ3FBU6I.js"], "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false } }, "url": "/build/manifest-644BB073.js" };
+var assets_manifest_default = { "version": "e42fc3a2", "entry": { "module": "/build/entry.client-U36FEEVY.js", "imports": ["/build/_shared/chunk-ILOI7ROF.js", "/build/_shared/chunk-JSO5GUHK.js"] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "module": "/build/root-SIDWJZJC.js", "imports": void 0, "hasAction": false, "hasLoader": true, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/action/setTheme": { "id": "routes/action/setTheme", "parentId": "root", "path": "action/setTheme", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/action/setTheme-YUOOPRQ4.js", "imports": void 0, "hasAction": true, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/contact": { "id": "routes/contact", "parentId": "root", "path": "contact", "index": void 0, "caseSensitive": void 0, "module": "/build/routes/contact-OLYJXPQ4.js", "imports": ["/build/_shared/chunk-4PJVLQMV.js"], "hasAction": true, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false }, "routes/index": { "id": "routes/index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "module": "/build/routes/index-JUO55SOJ.js", "imports": ["/build/_shared/chunk-4PJVLQMV.js"], "hasAction": false, "hasLoader": false, "hasCatchBoundary": false, "hasErrorBoundary": false } }, "url": "/build/manifest-E42FC3A2.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var entry = { module: entry_server_exports };

@@ -4,13 +4,11 @@ import { Layout } from "~/components/Layout";
 
 const HomePage: React.FunctionComponent = () => {
   return (
-    <>
-      <Layout>
-        <section className="-mt-20 h-screen flex items-center">
-          <Hero />
-        </section>
-      </Layout>
-    </>
+    <Layout>
+      <section className="-mt-20 h-screen flex items-center">
+        <Hero />
+      </section>
+    </Layout>
   );
 };
 

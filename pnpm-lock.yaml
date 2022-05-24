@@ -12,6 +12,7 @@ specifiers:
   '@types/react': ^17.0.24
   '@types/react-dom': ^17.0.9
   autoprefixer: ^10.4.4
+  classnames: ^2.3.1
   concurrently: ^7.1.0
   cross-env: ^7.0.3
   eslint: ^8.11.0
@@ -21,7 +22,6 @@ specifiers:
   react-dom: ^17.0.2
   react-icons: ^4.3.1
   tailwindcss: ^3.0.24
-  typed.js: ^2.0.12
   typescript: ^4.5.5
 
 dependencies:
@@ -31,12 +31,12 @@ dependencies:
   '@remix-run/react': 1.4.0_react-dom@17.0.2+react@17.0.2
   '@tailwindcss/forms': 0.5.0_tailwindcss@3.0.24
   '@tailwindcss/typography': 0.5.2_tailwindcss@3.0.24
+  classnames: 2.3.1
   cross-env: 7.0.3
   npm-run-all: 4.1.5
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
   react-icons: 4.3.1_react@17.0.2
-  typed.js: 2.0.12
 
 devDependencies:
   '@remix-run/dev': 1.4.0_react-dom@17.0.2+react@17.0.2
@@ -1837,6 +1837,10 @@ packages:
       isobject: 3.0.1
       static-extend: 0.1.2
     dev: true
+
+  /classnames/2.3.1:
+    resolution: {integrity: sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==}
+    dev: false
 
   /clean-stack/2.2.0:
     resolution: {integrity: sha512-4diC9HaTE+KRAMWhDhrGOECgWZxoevMc5TlkObMqNSsVU62PYzXZ/SMTjzyGAFF1YusgxGcSWTEXBhp0CPwQ1A==}
@@ -6515,10 +6519,6 @@ packages:
       media-typer: 0.3.0
       mime-types: 2.1.35
     dev: true
-
-  /typed.js/2.0.12:
-    resolution: {integrity: sha512-lyACZh1cu+vpfYY3DG/bvsGLXXbdoDDpWxmqta10IQUdMXisMXOEyl+jos+YT9uBbzK4QaKYBjT3R0kTJO0Slw==}
-    dev: false
 
   /typescript/4.6.3:
     resolution: {integrity: sha512-yNIatDa5iaofVozS/uQJEl3JRWLKKGJKh6Yaiv0GLGSuhpFJe7P3SbHZ8/yjAHRQwKRoA6YZqlfjXWmVzoVSMw==}

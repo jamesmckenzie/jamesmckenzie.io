@@ -1,5 +1,6 @@
-import type {
+import {
   HeadersFunction,
+  json,
   LoaderFunction,
   MetaFunction,
 } from "@remix-run/node";
@@ -14,7 +15,7 @@ import {
 } from "@remix-run/react";
 import { useState, useRef, useEffect } from "react";
 import { getColorScheme } from "./cookies";
-import { getSession } from "./sessions";
+import { commitSession, getSession } from "./sessions";
 import styles from "./styles/app.css";
 
 export function links() {
@@ -51,41 +52,57 @@ const getFlashMessage = async (request: Request) => {
   return session.get("globalMessage") || null;
 };
 
-export const loader: LoaderFunction = async ({ request }) => ({
-  colorScheme: await getColorScheme(request),
-  gaTrackingId: process.env.GA_TRACKING_ID,
-  flashMessage: await getFlashMessage(request),
-});
+export const loader: LoaderFunction = async ({ request }) => {
+  const session = await getSession(request.headers.get("Cookie"));
 
-const Toast: React.FC<{ message: string }> = ({ message }) => {
-  const [show, setShow] = useState(false);
-  const ref = useRef(message);
+  return json(
+    {
+      colorScheme: await getColorScheme(request),
+      gaTrackingId: process.env.GA_TRACKING_ID,
+      flashMessage: session.get("globalMessage") || null,
+    },
+    {
+      headers: {
+        "Set-Cookie": await commitSession(session), //will remove the flash message for you
+        // "Set-Cookie": await commitSession(session, { maxAge: SESSION_MAX_AGE }), //re set max age if you previously set a max age for your sessions.
+      },
+    }
+  );
+};
+
+const Toast: React.FC<{ messageText: string | null }> = ({ messageText }) => {
+  const [internalMessage, setInternalMessage] = useState(messageText);
 
   useEffect(() => {
-    if (message) {
-      setShow(true);
-      let timer = setTimeout(() => setShow(false), 3 * 1000);
+    if (messageText && internalMessage) {
+      setInternalMessage(messageText);
+
+      const timer = setTimeout(() => {
+        setInternalMessage(null);
+      }, 3000);
 
       return () => {
         clearTimeout(timer);
       };
     }
-  }, []);
+  }, [messageText]);
 
-  return (
+  return internalMessage ? (
     <div
       className={`fixed bottom-8 right-8  z-10 transition-all duration-500 ease-in-out ${
-        show ? "opacity-100 -translate-y-1/2" : "opacity-0 -translate-y-100"
+        messageText
+          ? "opacity-100 -translate-y-1/2"
+          : "opacity-0 -translate-y-100"
       }`}
     >
       <output
         role="status"
         className="text-green-800 bg-green-100  border border-green-500 p-4 rounded shadow-md transition-transform "
       >
-        {ref.current}
+        {internalMessage}
       </output>
     </div>
-  );
+  ) : null;
 };
 
 export default function App() {
@@ -120,7 +137,7 @@ export default function App() {
             />
           </>
         )}
-        <Toast message={flashMessage} />
+        <Toast messageText={flashMessage} />
         <Outlet />
         <ScrollRestoration />
         <Scripts />
