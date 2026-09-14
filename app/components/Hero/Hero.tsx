@@ -22,19 +22,20 @@ const Hero = () => (
 
     <div className="ml-1 lg:ml-2 max-w-2xl">
       <span className="text-zinc-700 text-base dark:text-white">
-        I'm a multi-disciplined Software Engineer, currently building the future
-        of banking at{" "}
+        I'm a multi-disciplined engineering leader, currently building the
+        future of inclusive global finance at{" "}
         <a
           className="text-pink-700 dark:text-pink-500 font-bold hover:underline hover:saturate-150 focus:saturate-150 focus:outline-none focus-visible:ring-4  rounded-sm transition-all"
-          href="https://www.checkout.com/"
+          href="https://www.nsave.com/"
         >
-          Checkout.com
+          nsave.com
         </a>
-        . Specialising in modern <strong>front end architecture</strong> and{" "}
-        <strong>tooling</strong>, I primarily work in{" "}
-        <strong>Typescript</strong>, as well as staying up to date with modern
-        application and systems programming in languages such as{" "}
-        <strong>Rust</strong> and <strong>Golang</strong>.
+        . Specialising in <strong>distributed systems</strong>,{" "}
+        <strong>platform engineering</strong> and{" "}
+        <strong>event-driven architecture</strong>, I primarily work in{" "}
+        <strong>TypeScript</strong> and <strong>Node.js</strong>, while
+        continuing to explore modern systems languages such as{" "}
+        <strong>Rust</strong> and <strong>Go</strong>.
       </span>
     </div>
 

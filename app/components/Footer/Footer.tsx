@@ -16,11 +16,12 @@ const Footer = () => (
   <footer className="mx-auto px-8 lg:px-16 py-8 bg-white shadow-2xl shadow-pink-800 z-1">
     <div className="max-w-lg m-auto">
       <p className="text-center">
-        I'm a multi-disciplined Software Engineer, currently building the future
-        of banking at <a href="https://www.checkout.com/">Checkout.com</a>. An
-        expert in front end architecture and tooling, I primarily work in
-        Typescript, although I enjoy dabbling in modern languages such as Rust
-        and Golang
+        I'm a multi-disciplined engineering leader, currently building the
+        future of inclusive global finance at{" "}
+        <a href="https://www.nsave.com/">nsave.com</a>. Specialising in
+        distributed systems, platform engineering and event-driven architecture,
+        I primarily work in TypeScript and Node.js, while continuing to explore
+        modern systems languages such as Rust and Go.
       </p>
     </div>
     <div className="flex py-8 flex-wrap content-center justify-center space-x-4">

@@ -39,7 +39,7 @@ export const meta: MetaFunction = () => ({
   title: "James McKenzie | Home",
   viewport: "width=device-width,initial-scale=1",
   description:
-    "A multi-disciplined Software Engineer based in London. Currently building the future of banking at Checkout.com.",
+    "Multi-disciplined engineering leader building the future of inclusive global finance at nsave.",
 });
 
 export const headers: HeadersFunction = () => ({
