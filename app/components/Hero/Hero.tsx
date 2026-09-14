@@ -28,7 +28,7 @@ const Hero = () => (
           className="text-pink-700 dark:text-pink-500 font-bold hover:underline hover:saturate-150 focus:saturate-150 focus:outline-none focus-visible:ring-4  rounded-sm transition-all"
           href="https://www.nsave.com/"
         >
-          nsave.com
+          nsave
         </a>
         . Specialising in <strong>distributed systems</strong>,{" "}
         <strong>platform engineering</strong> and{" "}

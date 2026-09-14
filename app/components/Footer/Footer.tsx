@@ -18,7 +18,7 @@ const Footer = () => (
       <p className="text-center">
         I'm a multi-disciplined engineering leader, currently building the
         future of inclusive global finance at{" "}
-        <a href="https://www.nsave.com/">nsave.com</a>. Specialising in
+        <a href="https://www.nsave.com/">nsave</a>. Specialising in
         distributed systems, platform engineering and event-driven architecture,
         I primarily work in TypeScript and Node.js, while continuing to explore
         modern systems languages such as Rust and Go.
