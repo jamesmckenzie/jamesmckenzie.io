@@ -112,6 +112,7 @@ export default function App() {
     <html lang="en" className={colorScheme}>
       <head>
         <Meta />
+        <meta name="theme-color" content="#e9d5ff" />
         <Links />
       </head>
       <body>
